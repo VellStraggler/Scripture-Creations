@@ -15,7 +15,7 @@ function Header() {
             <div className="header-edge">
                 <a href="sign-in.html">Sign In</a>
                 <div className="cart-section">
-                    <FaShoppingCart size={24} color="blue" />
+                    <FaShoppingCart size={24} color="black" />
                     1
                 </div>
             </div>
