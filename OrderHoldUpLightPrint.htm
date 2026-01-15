@@ -1,0 +1,63 @@
+<?php
+include($_SERVER['DOCUMENT_ROOT']."/utils/header.php");
+$title = "<title>Hold Up Your Light Print</title>";
+$meta = '
+<meta name="DESCRIPTION" content="This page explains Scripture Creations Hold Up Your Light Print.">
+<meta name="KEYWORDS" content="Hold up your light, let your light so shine, Christian example">
+';
+$name = basename(__FILE__);PageHeader($title,$meta, $name);
+?>
+
+<BODY>
+<img src="images/HoldupLight.jpg" width="300" height="260" align=left><FONT FACE="Times New Roman" SIZE="+3"><CENTER>Hold Up Your Light Print</CENTER></FONT>
+  
+<P>This print and verse, "Hold up your light that it may shine unto the world," admonishes everyone to be a good example to others. </P>
+
+<p>
+<form action="https://secure.chargebackguardiangateway.com/cart/cart.php" method="POST">
+Size 8" x 10" .......... Price $7.95 -- Quantity <input type="text" size="4" name="product_quantity_1" /> 
+Language <select name="product_option_1_1">
+<option value="English">English</option>
+<option value="Espanol">Espanol</option>
+</select>
+<input type="hidden" name="product_option_values_1_1" value="English|Espanol" />
+<input type="hidden" name="action" value="process_cart" />
+<input type="hidden" name="product_sku_1" value="67057900352" />
+<input type="hidden" name="product_description_1" value="Light Print" />
+<input type="hidden" name="product_amount_1" value="7.95" />
+<input type="hidden" name="product_shipping_1" value="fixed|1.50" />
+<input type="hidden" name="url_continue" value="ScriptureCreations.com/ProductFrameSet.htm" />
+<input type="hidden" name="language" value="en" />
+<input type="hidden" name="url_cancel" value="ScriptureCreations.com/index.htm" />
+<input type="hidden" name="url_finish" value="ScriptureCreations.com/ThankYou.htm" />
+<input type="hidden" name="customer_receipt" value="true" />
+<input type="hidden" name="username" value="Scripturecreationsllc" />
+<input type="submit" name="submit" value="Add To Cart" />
+</form>
+</p>
+
+<CENTER><form method=post action="https://secure.chargebackguardiangateway.com/cart/cart.php">
+<input type="hidden" name="key_id" value="1361836">
+<input type="hidden" name="action" value="show_cart">
+<input type="submit" value="View Cart/Check Out">
+</form></CENTER>
+
+<BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<P ALIGN="CENTER">
+
+<MAP NAME="Previous">
+<AREA href="OrderPridePrint.htm" SHAPE="rect" COORDS="0,0,27,27">
+</MAP>
+
+<MAP NAME="Next">
+<AREA href="OrderConcentrate.htm" SHAPE="rect" COORDS="0,0,27,27">
+</MAP>
+
+<img src="images/Previous.jpg" usemap="#Previous" align="left">
+<img src="images/Next.jpg" usemap="#Next" align="left">
+
+</P>
+
+<?php PageFooter(); ?>
+
+</BODY>

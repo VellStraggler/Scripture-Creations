@@ -1,0 +1,26 @@
+<?php
+if (!isset($header_php))
+	include($_SERVER['DOCUMENT_ROOT']."/utils/header.php");
+$title = "<title>Your message has been sent</title>";
+$meta = '
+<meta name="DESCRIPTION" content="Your message has been sent">
+<meta name="KEYWORDS" content="Your message has been sent">
+';
+$name = basename(__FILE__);PageHeader($title,$meta, $name);
+?>
+
+<table cellspacing="0" cellpadding="0" border=0 width="100%">
+<tr>
+	<td valign="top">
+<br><h1>Order Sent!</h1>
+<p>Thank You! Your order has been submitted to Scripture Creations.</p>
+<p>If there are any problems with your order, please call us at (801) 785-4964.</p>
+
+<p><a TARGET="_top" href="index.htm">Scripture Creations Home Page</a>.</p>
+	</td>
+
+	</tr>
+</table>
+<br>
+<br>
+<?php pagefooter(); ?>

@@ -1,0 +1,304 @@
+﻿body {
+background:#DEDEDE url(/g/bgDark.gif) repeat-y;
+background-position:center top;
+color:#000;
+margin:0 auto;
+text-align:left;
+font-family:"Calibri",arial,helvetica,sans-serif;
+}
+
+/* Global Links */
+a:link, a:visited {
+text-decoration: none;
+color: #003399;
+}
+
+a:hover, a:active {
+text-decoration: underline; 
+color: #8f2525;
+}
+
+
+/* Appearance and Location for navigation */
+#navigation {
+position: absolute;
+top:60px;
+width:989px;
+font-size:105%;
+border-bottom:5px solid #a29e9e;
+background:#555;
+}
+
+#navigation ul {
+margin:0 0 0 5px;
+padding:0;
+}
+
+#navigation ul li {
+position: relative;
+display: inline;
+float: left;
+border-right:1px solid #fff;
+}
+
+#navigation li#first {
+
+}
+#navigation li#last {
+border:none;
+}
+
+#navigation a {
+padding:10px 10px 0 10px;
+height:25px;
+}
+
+#navigation a:link, #navigation a:visited {
+display: block;
+float: left;
+color:#fff;
+}
+
+#navigation a:hover, #navigation a:active {
+text-decoration: underline;
+}
+
+#navigation ul li:hover, #navigation ul li.over {
+}
+
+#navigation ul li:hover a:link, #navigation ul li:hover a:visited,
+#navigation ul li.over a:link, #navigation ul li.over a:visited {
+}
+
+#navigation ul li.current {
+}
+
+#navigation ul li.current a:link, #navigation ul li.current a:visited {
+}
+
+#navigation ul li.current a:hover, #navigation ul li.current a:active {
+}
+
+/* Appearance and Location for Dropdowns */
+#navigation ul li ul {
+display: none;
+}
+
+#navigation ul li:hover ul, #navigation ul li.over ul {
+display: block;
+position: absolute;
+top: 35px;
+left: 0;
+margin:0;
+height: auto; /* Don't delete me; makes sure you can see the borders in firefox too. */
+width: 200px;
+border: 1px solid #000; /*navigation ul:border-color*/
+background-color: #e4e4e4;
+z-index: 5;
+}
+
+#navigation ul li#last ul, #navigation ul li#last ul {
+}
+
+#navigation ul li:hover ul li, #navigation ul li.over ul li {
+display: block;
+margin: 0;
+width: 200px; /*navigation ul:width*/ /* TODO: Subtract the border width of this CSS block. */
+height: auto; /* Don't delete me; makes sure you can see the borders in firefox too. */
+border:none;
+}
+
+
+#navigation ul li:hover ul li.first, #navigation ul li.over ul li.first {
+}
+#navigation ul li:hover ul li.last, #navigation ul li.over ul li.last {
+}
+
+
+#navigation ul li:hover ul li a:link, #navigation ul li:hover ul li a:visited,
+#navigation ul li.over ul li a:link, #navigation ul li.over ul li a:visited {
+display: block;
+float: none;
+margin: 0;
+padding: 6px 0 6px 8px;
+height: auto;
+width:192px;
+font-weight: normal;
+font-size: 78%;
+text-align: left;
+text-decoration: none;
+color: #464646;
+font-style: normal;
+}
+
+#navigation ul li:hover ul li a:hover, #navigation ul li:hover ul li a:active,
+#navigation ul li.over ul li a:hover, #navigation ul li.over ul li a:active {
+text-decoration: underline;
+color: #464646;
+background: #b7c2d8;
+}
+
+#navigation ul li.current ul li.current a:link, #navigation ul li.current ul li.current a:visited {
+color: #ee2e24;
+text-decoration: none;
+}
+#navigation ul li.current ul li.current a:hover, #navigation ul li.current ul li.current a:active {
+color: #ee2e24;
+text-decoration: underline;
+}
+#navigation ul li.current ul li.current {
+background: none;
+}
+
+#subNav {
+display:none;
+}
+
+#container {
+margin:0 auto;
+width:989px;
+}
+
+ul ol li {
+font-size:20px;
+}
+
+#Logo {
+display: block;
+margin: 10px 0 2px 10px;
+}
+
+#headerLinks {
+position:absolute;
+left:900px;
+top:0;
+margin-top:0;
+}
+
+#headerLinks ul li {
+color:#206EF2;
+display:block;
+float:left;
+padding:0 3px;
+}
+
+
+#Phone {
+position:absolute;
+left:600px;
+top:18px;
+}
+
+img {
+border:0;
+}
+
+#main {
+margin:0 5px 0 5px;
+padding-top:58px;
+width:989px;
+}
+
+#footer {
+background:#2C2C2C none repeat scroll 0 0;
+height:130px;
+width:989px;
+}
+
+#footerWrapper {
+clear:both;
+padding:0 0 5px;
+}
+
+#footerSupportLinks {
+margin:6px 0 0;
+padding:0;
+position:relative;
+text-align:center;
+}
+
+#footerSupportLinks li {
+color:#498AF6;
+display:inline;
+padding:0;
+}
+
+#footerSupportLinks li a:hover, #footerSupportLinks li a:active {
+color:#498AF6;
+font-size:90%;
+font-weight:normal;
+text-decoration:none;
+}
+
+#footerSupportLinks li a:link, #footerSupportLinks li a:visited {
+color:#498AF6;
+font-size:90%;
+font-weight:normal;
+text-decoration:underline;
+}
+
+#footerBar {
+color:#FFFFFF;
+font-family:"Calibri",arial,helvetica,sans-serif;
+font-size:90%;
+margin:0 0 10px 0;
+padding:15px 0 0;
+text-align:center;
+}
+
+H1,H2,H3,H4,H5 {
+padding:0;
+margin: 0 5px 0 10px;
+}
+
+H1 {
+font-family:Arial,Helvetica,sans-serif;
+color:#0252AA;
+margin-top:0.25em;
+margin-bottom:0.15em;
+font-size:1.7em;
+line-height:1.2em;
+font-weight:normal;
+}
+
+.h1Color {color: #0252AA;}
+
+H2.block, H3.block {
+background-color:#F0F0F0;
+color:#333333;
+font-weight:bold;
+line-height:1.8em;
+font-size:1.2em;
+}
+
+H2 {
+color:#000;
+font-weight:bold;
+line-height:1.25em;
+font-size:1.3em;
+}
+
+H3{
+color:#124FC2;
+font-weight:bold;
+line-height:1.25em;
+font-size:1.3em;
+}
+
+.h2Color {color: #000;}
+
+H4 {
+color:#124FC2;
+line-height:1.1em;
+font-size:1.1em;
+}
+
+H5 {
+color:#333;
+font-weight:700;
+}
+
+p {
+margin:5px 5px 10px 10px;
+}
+

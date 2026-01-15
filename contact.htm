@@ -1,0 +1,90 @@
+<?php
+include($_SERVER['DOCUMENT_ROOT']."/utils/header.php");
+$title = "<title>Scripture Creations Contact Us</title>";
+$meta = '
+<meta name="DESCRIPTION" content="Contact Scripture Creations">
+<meta name="KEYWORDS" content="Contact Scripture Creations">
+';
+$name = basename(__FILE__);PageHeader($title,$meta, $name);
+?>
+<style type="text/css">
+
+input.box {
+background-color:#FFFFA0;
+border:1px solid #CCCCCC;
+height:20px;
+line-height:normal;
+margin-right:5px;
+padding:3px 0 0 3px;
+}
+
+label {
+width: 8em;
+float: left;
+text-align: right;
+margin-right: 0.5em;
+display: block
+}
+
+.submit input {
+margin-left: 7em;
+}
+
+input.new, textarea.new {
+color: #781351;
+background: #fee3ad;
+border: 1px solid #781351;
+width:250px;
+}
+
+.submit input {
+color: #000;
+background: #ffa20f;
+border: 2px outset #d7b9c9;
+}
+
+fieldset {
+border: 1px solid #781351;
+background:#FFFF99 url(/g/gradient-308.jpg)
+}
+
+legend {
+color: #fff;
+background: #ffa20c;
+border: 1px solid #781351;
+padding: 2px 6px;
+} 
+</style>
+
+
+<h1>Contact Scripture Creations</h1>
+<p><table>
+<tr valign="top">
+    <td>
+<br>
+<form action="/cgi-bin/FormMail.pl" method="POST">
+<input type="hidden" name="recipient" value="1" />
+<input type="hidden" name="redirect" value="http://www.scripturecreations.com/thankyou.htm" />
+<input type="hidden" name="subject" value="Contacting Scripture Creations" />
+<input type="hidden" name="required" value="firstname,lastname,email" />
+<fieldset>
+<legend>Contact Form</legend>
+<p><label for="firstname">First Name:</label> <input type="text" class="new" name="firstname" /></p>
+<p><label for="lastname">Last Name:</label> <input type="text" class="new" name="lastname" /></p>
+<p><label for="email">E-mail:</label> <input type="text" class="new" name="email" /><br /></p>
+<p><label for="comments">Comments:</label><textarea class="new" name="comments" rows="8" cols="24"> Please type your message here.</textarea></p>
+
+<p class="submit"><input type="submit" value="Submit" /></p>
+</fieldset>
+</form>
+    </td>
+</tr>
+</table>
+
+<P ALIGN="CENTER">137 North 550 East,
+Lindon, Utah 84042<BR>
+Phone: (801) 785-4964<BR>
+Cell: (801) 358-1957<BR>
+Fax: (419) 735-7777</P>
+
+<?php PageFooter(); ?>
