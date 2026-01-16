@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sku_001",
+    "name": "Articles of Faith Memorization Game",
+    "price": 8,
+    "category": "games",
+    "image": "BoxArticles.jpg",
+    "inStock": "Yes",
+    "Description": "Here is an example description."
+  },
+  {
+    "id": "sku_002",
+    "name": "Book of Mormon Chronology Bookmark",
+    "price": 4,
+    "category": "bookmarks",
+    "image": "BofMBookmark.jpg",
+    "inStock": "Yes",
+    "Description": "Here is an example description 2."
+  },
+  {
+    "id": "sku_003",
+    "name": "\"Hold up your light\" Graphic",
+    "price": 4,
+    "category": "posters",
+    "image": "HoldupLight.jpg",
+    "inStock": "Yes",
+    "Description": "Here is an example description 3."
+  },
+  {
+    "id": "sku_004",
+    "name": "Missionary Journey Legend",
+    "price": 0.1,
+    "category": "other",
+    "image": "Missionary Legend.jpg",
+    "inStock": "Yes",
+    "Description": "Here is an example description 4."
+  }
+]
