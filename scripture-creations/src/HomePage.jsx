@@ -1,5 +1,7 @@
 import {FaShoppingCart} from 'react-icons/fa';
 import products from './catalog.json';
+import { useState, useEffect } from 'react';
+import { useCart } from "./CartContext";
 
 function NavItem({href, label}) {
     return (
@@ -10,14 +12,18 @@ function NavItem({href, label}) {
 }
 
 function Header() {
+    const { cart, resetCart } = useCart();
+
     return (
         <header className="site-header">
             <img src="images/other/logolong.gif" alt="Scripture Creations Logo" height="50px"/>
             <div className="header-edge">
                 <a href="sign-in.html">Sign In</a>
                 <div className="cart-section">
-                    <FaShoppingCart size={24} color="black" />
-                    1
+                    <button onClick={() => resetCart(cart)}>
+                        <FaShoppingCart size={24} color="black" />
+                        {cart.length}
+                    </button>
                 </div>
             </div>
         </header>
@@ -48,7 +54,7 @@ function MissionStatement() {
 
 function Product({p}) {
     return (
-        <li key={p.id} className="product">
+        <li className="product">
             <div className="prod-img">
                 <img src={`images/products/${p.image}`} alt={p.name}></img>
             </div>
@@ -59,10 +65,18 @@ function Product({p}) {
                     <p>{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(p.price)}</p>
                 </div>
                 <div className="prod-button">
-                    <button>Add to Cart</button>
+                    <AddToCartButton product={p}/>
                 </div>
             </div>
         </li>
+    );
+}
+
+function AddToCartButton({product}) {
+    const { addToCart } = useCart();
+
+    return (
+        <button type="button" onClick={() => addToCart(product)}>Add to Cart</button>
     );
 }
 
@@ -70,8 +84,7 @@ function ProductList() {
     return (
         <ul>
             {products.map(product => (
-                <Product p={product} />
-            ))}
+                <Product key={product.id} p={product}/>))}
         </ul>
     );
 }
@@ -88,12 +101,13 @@ function Navigation() {
 }
 
 export default function HomePage() {
+    const { addToCart } = useCart();
     return (
         <div className="container">
-            <Header />
+            <Header/>
             <Navigation />
             <div className="content">
-                <ProductList />
+                <ProductList addToCart={addToCart}/>
                 <MissionStatement />
             </div>
             <Footer/>

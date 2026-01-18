@@ -2,9 +2,12 @@ import {createRoot } from "react-dom/client"
 import { StrictMode } from 'react'
 import HomePage from "./HomePage.jsx"
 import './styles.css';
+import { CartProvider } from "./CartContext.jsx";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
     <StrictMode>
-        <HomePage/>
+        <CartProvider>
+            <HomePage/>
+        </CartProvider>
     </StrictMode>);
