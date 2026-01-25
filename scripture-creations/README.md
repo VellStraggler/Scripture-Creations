@@ -22,3 +22,6 @@ We installed the GitHub publisher like this:
 
 ## Excel Reading
 ```npm install csv-parser``` as well as xlsx
+
+## Mention of a high severity vulnerability
+This is related to the xlsx module which is only utilized to transfer the catalog to a json file. Ignore entirely.

@@ -1,82 +1,41 @@
-import {FaShoppingCart} from 'react-icons/fa';
 import products from './catalog.json';
-import { useState, useEffect } from 'react';
 import { useCart } from "./CartContext";
-
-function NavItem({href, label}) {
-    return (
-        <a href={href} className="nav-link">
-            {label}
-        </a>
-    );
-}
-
-function Header() {
-    const { cart, resetCart } = useCart();
-
-    return (
-        <header className="site-header">
-            <img src="images/other/logolong.gif" alt="Scripture Creations Logo" height="50px"/>
-            <div className="header-edge">
-                <a href="sign-in.html">Sign In</a>
-                <div className="cart-section">
-                    <button onClick={() => resetCart(cart)}>
-                        <FaShoppingCart size={24} color="black" />
-                        {cart.length}
-                    </button>
-                </div>
-            </div>
-        </header>
-    );
-}
-
-function Footer() {
-    return (
-        <footer>
-            Scripture Creations LLC, 2026
-        </footer>
-    );
-}
-
-function MissionStatement() {
-    return (
-        <div className="text">
-            <h3><em>"Strengthening Families in Jesus Christ"</em></h3>
-            <h2>Mission Statement:</h2>
-            <h3>
-            To create and distribute products that will strengthen the knowledge
-            and testimonies of those who use them and move the work of the Lord
-            forward in new and creative ways.
-            </h3>
-        </div>
-    );
-}
+import { useState } from "react";
+import { Title, Header, Navigation, Footer, CurrencyUS, MediumImage, showToast } from './Components.jsx';
 
 function Product({p}) {
+    const [quantity, setQuantity] = useState(1);
     return (
         <li className="product">
-            <div className="prod-img">
-                <img src={`images/products/${p.image}`} alt={p.name}></img>
-            </div>
+            <MediumImage product={p} />
             <div className="prod-data">
                 <div className="prod-info">
                     <h2>{p.name}</h2>
                     <p>{p.Description}</p>
-                    <p>{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(p.price)}</p>
+                    <CurrencyUS price={p.price} />
                 </div>
                 <div className="prod-button">
-                    <AddToCartButton product={p}/>
+                    Quantity:
+                    <input type="number" min="1" step="1" max="100" value={quantity} 
+                        pattern="[0-9]*" className="prod-quantity" onChange={(e) => {
+                            let val = Number(e.target.value);
+                            val = Math.min(100, val);
+                            setQuantity((val >= 1) ? val : 1);
+                        }}></input>
+                    <AddToCartButton product={p} quantity={quantity}/>
                 </div>
             </div>
         </li>
     );
 }
 
-function AddToCartButton({product}) {
+function AddToCartButton({product, quantity}) {
     const { addToCart } = useCart();
-
     return (
-        <button type="button" onClick={() => addToCart(product)}>Add to Cart</button>
+        <button type="button" onClick={() => {
+            addToCart(product, quantity);
+            showToast(`${quantity} items added to cart`);
+        }}>Add to Cart</button>
     );
 }
 
@@ -89,17 +48,6 @@ function ProductList() {
     );
 }
 
-function Navigation() {
-    return (
-      <nav className="main-nav">
-        <NavItem href="/catalog.pdf" label="Products" />
-        <NavItem href="/info.html" label="About Us" />
-        <NavItem href="/links.html" label="LDS Links" />
-        <NavItem href="/order.html" label="Order Form" />
-      </nav>
-    );
-}
-
 export default function HomePage() {
     const { addToCart } = useCart();
     return (
@@ -107,8 +55,8 @@ export default function HomePage() {
             <Header/>
             <Navigation />
             <div className="content">
+                <Title text="Home Page" />
                 <ProductList addToCart={addToCart}/>
-                <MissionStatement />
             </div>
             <Footer/>
         </div>
