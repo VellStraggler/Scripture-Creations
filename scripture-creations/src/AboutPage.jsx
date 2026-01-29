@@ -11,9 +11,7 @@ function Management() {
                         <h3>Reed Hansen, President:</h3>
                         <ul>
                             <li>MBA from the University of Phoenix, 1997</li>
-                            <li>BA in Computer Information Systems from Weber State University, 1985</li>
-                            <li>Minor: Economics</li>
-                            <li>Over ten years experience designing and making games, books, and LDS products</li>
+                            <li>BA in Computer Information Systems with Minor in Economics from Weber State University, 1985</li>
                         </ul>
                     </div>
                     <div>
@@ -21,9 +19,6 @@ function Management() {
                         <ul>
                             <li>English Education Major at BYU</li>
                             <li>Studied Interior Design at UVSC</li>
-                            <li>Artistic and editing talents</li>
-                            <li>Twelve years experience in sales</li>
-                            <li>Nine years experience in secretarial/bookkeeping</li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +68,7 @@ function MissionStatement() {
 
 function About() {
     return (
-        <div className="content">
+        <div className="about">
             <MissionStatement />
             <Objectives />
             <History />
@@ -85,13 +80,5 @@ function About() {
 export default function AboutPage() {
     return (
         <PageLayout title="About Us" SubPage={About}/>
-    );
-}
-
-function Welcome() {
-    return(
-        <div>
-            <AboutPage />
-        </div>
     );
 }

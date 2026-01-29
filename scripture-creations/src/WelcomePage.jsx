@@ -2,8 +2,8 @@ import { PageLayout } from "./Components";
 
 function WelcomeCarousel() {
     return (
-        <div>
-            
+        <div className="text">
+            Under Construction!
         </div>
     );
 }
