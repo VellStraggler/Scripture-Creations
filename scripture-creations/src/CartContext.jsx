@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
+const taxRate = 0.03;
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(() => {
@@ -69,9 +70,15 @@ export function CartProvider({ children }) {
         });
         return subTotal;
     }
+    const getTaxRate = () => {
+        return taxRate;
+    }
+    const getTotal = () => {
+        return getSubTotal()*(1+taxRate);
+    }
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, removeFromCart, adjustQuantity, getTotalQuantity }}>
+        <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, removeFromCart, adjustQuantity, getTotalQuantity, getTotal, getTaxRate }}>
             {children}
         </CartContext.Provider>
     );

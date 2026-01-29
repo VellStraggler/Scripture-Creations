@@ -1,7 +1,7 @@
 import products from './catalog.json';
-import { useCart } from "./CartContext";
+import { useCart } from "./CartContext.jsx";
 import { useState } from "react";
-import { Title, Header, Navigation, Footer, CurrencyUS, MediumImage, showToast } from './Components.jsx';
+import { PageLayout, CurrencyUS, MediumImage, showToast } from './Components.jsx';
 
 function Product({p}) {
     const [quantity, setQuantity] = useState(1);
@@ -48,17 +48,8 @@ function ProductList() {
     );
 }
 
-export default function HomePage() {
-    const { addToCart } = useCart();
+export default function ProductsPage() {
     return (
-        <div className="container">
-            <Header/>
-            <Navigation />
-            <div className="content">
-                <Title text="Home Page" />
-                <ProductList addToCart={addToCart}/>
-            </div>
-            <Footer/>
-        </div>
+        <PageLayout title="Products Page" SubPage={ProductList}/>
     );
 }

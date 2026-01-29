@@ -1,8 +1,8 @@
-import { useCart } from "./CartContext";
-import { PageLayout, SmallImage, currencyUS} from "./Components.jsx";
+import { useCart } from "./CartContext.jsx";
+import { Header, Title, Navigation, Footer, SmallImage, CurrencyUS, MediumImage, currencyUS, PageLayout} from "./Components.jsx";
 import { NavLink } from "react-router-dom";
 import { FaTrash } from 'react-icons/fa';
-import { useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const lambdaUrl = "https://hxvuuzq676.execute-api.us-east-2.amazonaws.com/token/";
 const tax = 0.03;
@@ -185,8 +185,10 @@ function Cart() {
     );
 }
 
-export default function CartPage() {
+export default function AddressPage() {
     return (
-        <PageLayout title="Your Cart" SubPage={Cart}/>
+        <PageLayout title="Where To Ship" SubPage={Cart}/>
     );
 }
+
+// CURRENTLY IDENTICAL TO CART PAGE, SHOULD BECOME ONLY ADDRESS FORM

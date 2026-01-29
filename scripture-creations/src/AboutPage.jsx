@@ -1,4 +1,4 @@
-import { Header, Navigation, Footer, MediumImage, Title} from "./Components.jsx";
+import { PageLayout } from "./Components";
 
 function Management() {
     return (
@@ -74,7 +74,6 @@ function MissionStatement() {
 function About() {
     return (
         <div className="content">
-            <Title text="About Us" />
             <MissionStatement />
             <Objectives />
             <History />
@@ -85,11 +84,14 @@ function About() {
 
 export default function AboutPage() {
     return (
-        <div className="container">
-            <Header/>
-            <Navigation />
-            <About/>
-            <Footer/>
+        <PageLayout title="About Us" SubPage={About}/>
+    );
+}
+
+function Welcome() {
+    return(
+        <div>
+            <AboutPage />
         </div>
     );
 }

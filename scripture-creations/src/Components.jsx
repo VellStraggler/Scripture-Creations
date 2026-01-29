@@ -1,6 +1,36 @@
 import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from "./CartContext";
 import { NavLink } from "react-router-dom";
+import sendIcon from "./assets/send_icon.png";
+
+export function PageLayout({title, SubPage}) {
+    return (
+        <div className="container">
+            <Header/>
+            <Navigation />
+            <div className="content">
+                <Title text={title}/>
+                <SubPage/>
+            </div>
+            <Footer/>
+        </div>
+    );
+}
+
+export function DivDown({children}) {
+    return (
+        <div className="div-down">
+            {children}
+        </div>
+    )
+}
+export function DivCols({children}) {
+    return (
+        <div className="div-cols">
+            {children}
+        </div>
+    )
+}
 
 export function Title({text}) {
     return (
@@ -43,6 +73,42 @@ export function showToast(message, duration = 3000) {
     }, duration);
 }
 
+function Contact() {
+    return (
+        <div className="contact">
+            <div className="contact-head">
+                Your feedback is important to us, as are your questions. We often
+                respond within 48 hours and will help in any way we can!
+            </div>
+            <form className="form-section"
+                action="https://formspree.io/f/xkoonvej"
+                method="POST">
+                <DivDown>
+                    <div className="email-section">
+                        <label>Your email</label>
+                        <input type="email" name="email" required/>
+                    </div>
+                    <label>Your message</label>
+                    <textarea name="message" rows="3" required ></textarea>
+                </DivDown>
+                <div>
+                    <button type="submit" title="Powered by Formspree">
+                        <h3>
+                        Send
+                        </h3>
+                        <span className="expanding-dots">
+                            <span>·</span>
+                            <span>·</span>
+                            <span>·</span>
+                        </span>
+                        <img src={sendIcon} height="24px"></img>
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
+}
+
 
 export function MediumImage({product}) {
     return (
@@ -82,14 +148,11 @@ export function Header() {
 export function Navigation() {
     return (
       <nav className="main-nav">
-        <NavLink to="/" className="nav-link">
-            Home
-        </NavLink>
-        <NavLink to="/about" className="nav-link">About Us</NavLink>
-        <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
-        <NavLink to="/cart" className="nav-link">
-            Your Cart
-        </NavLink>
+        <NavLink to="/"         className="nav-link">Welcome</NavLink>
+        <NavLink to="/products" className="nav-link">Products</NavLink>
+        {/* <NavLink to="/contact"  className="nav-link">Contact Us</NavLink> */}
+        {/* <NavLink to="/cart"     className="nav-link">Your Cart</NavLink> */}
+        <NavLink to="/about"    className="nav-link">About Us</NavLink>
       </nav>
     );
 }
@@ -97,7 +160,13 @@ export function Navigation() {
 export function Footer() {
     return (
         <footer>
-            Scripture Creations LLC, 2026
+            <Contact/>
+            <DivDown>
+                <NavLink to="/about">About Us</NavLink>
+                Located in Lindon, UT, USA
+                <a href="https://www.etsy.com/shop/ScriptureCreateLLC">View Our Etsy Page</a>
+                © Scripture Creations LLC, 2026, All rights reserved.
+            </DivDown>
         </footer>
     );
 }
