@@ -3,6 +3,7 @@ import { CartProvider } from "./CartContext.jsx";
 import { BrowserRouter } from "react-router";
 import { Routes, Route } from "react-router-dom";
 import './styles.css';
+import './carousel.css';
 
 import WelcomePage from "./WelcomePage.jsx";
 import ProductsPage from "./ProductsPage.jsx";

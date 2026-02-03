@@ -1,10 +1,10 @@
-import { PageLayout } from "./Components";
+import { Title, PageLayout } from "./Components";
+import ProductCarousel from "./Carousel";
+import products from './catalog.json';
 
 function WelcomeCarousel() {
     return (
-        <div className="text">
-            Under Construction!
-        </div>
+        <ProductCarousel products={ products}/>
     );
 }
 
@@ -12,6 +12,10 @@ function Welcome() {
     return(
         <div>
             <WelcomeCarousel />
+            <Title text=""/>
+            <div className = "text">
+                Categories will go here.
+            </div>
         </div>
     );
 }

@@ -109,6 +109,9 @@ function Contact() {
     );
 }
 
+export function getImageURL(product) {
+    return `${import.meta.env.BASE_URL}images/products/${product.image}`;
+}
 
 export function MediumImage({product}) {
     return (
