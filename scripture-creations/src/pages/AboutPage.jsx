@@ -1,4 +1,4 @@
-import { PageLayout } from "./Components";
+import { PageLayout } from "../Components";
 
 function Management() {
     return (
@@ -79,6 +79,8 @@ function About() {
 
 export default function AboutPage() {
     return (
-        <PageLayout title="About Us" SubPage={About}/>
+        <PageLayout title="About Us">
+            <About/>
+        </PageLayout>
     );
 }

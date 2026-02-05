@@ -1,6 +1,6 @@
-import { Title, PageLayout } from "./Components";
-import ProductCarousel from "./Carousel";
-import products from './catalog.json';
+import { Title, PageLayout } from "../Components";
+import ProductCarousel from "../Carousel";
+import products from '../catalog.json';
 
 function WelcomeCarousel() {
     return (
@@ -22,6 +22,8 @@ function Welcome() {
 
 export default function WelcomePage() {
     return (
-        <PageLayout title="Welcome to Scripture Creations" SubPage={Welcome}/> 
+        <PageLayout title="Welcome to Scripture Creations">
+            <Welcome/>
+        </PageLayout> 
     );
 }

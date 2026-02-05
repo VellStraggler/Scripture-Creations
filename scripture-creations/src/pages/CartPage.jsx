@@ -1,5 +1,5 @@
-import { useCart } from "./CartContext";
-import { PageLayout, SmallImage, currencyUS} from "./Components.jsx";
+import { useCart } from "../CartContext.jsx";
+import { PageLayout, SmallImage, currencyUS} from "../Components.jsx";
 import { NavLink } from "react-router-dom";
 import { FaTrash } from 'react-icons/fa';
 import { useState, useEffect } from "react";
@@ -187,6 +187,8 @@ function Cart() {
 
 export default function CartPage() {
     return (
-        <PageLayout title="Your Cart" SubPage={Cart}/>
+        <PageLayout title="Your Cart">
+            <Cart />
+        </PageLayout>
     );
 }

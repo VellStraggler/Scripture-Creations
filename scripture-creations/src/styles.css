@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
     --primary: rgb(14, 14, 129);
-    --secondary: rgb(143, 24, 24);
+    --secondary: rgb(227, 100, 113);
     --primary-light: rgb(54, 79, 240);
     --primary-dark: rgb(7, 7, 89);
     --light: white;
@@ -33,6 +33,10 @@ body {
     margin:0px;
     padding:0px;
     background-color: var(--primary);
+}
+.footer-text {
+    min-width:min-content;
+    max-width: 30%;
 }
 footer, .footer {
     display:flex;
@@ -139,6 +143,17 @@ body, p, li {
 .content {
     /* background-color: var(--light); */
     background: linear-gradient(
+        60deg,
+        var(--light) 20%,
+
+        var(--warm-blue) 40%,
+        var(--light) 50%,
+        var(--warm-blue) 70%,
+
+        var(--light) 100%
+    );    
+    /* Book-looking thing */
+    /* background: linear-gradient(
         90deg,
         var(--warm-blue) 25px,
         var(--light) 50px,
@@ -151,7 +166,7 @@ body, p, li {
 
         var(--light) calc(100% - 50px),
         var(--warm-blue) calc(100% - 25px)
-    );    
+    );     */
 }
 .about {
     display:flex;
@@ -165,19 +180,24 @@ body, p, li {
 }
 
 .text {
-    width:66%;
-    max-width:500px;
-    display:flex;
     flex-direction: column;
+    max-width:500px;
+    width:66%;
+    display:flex;
     justify-content: center;
     justify-self: center;
     align-items: start;
-    margin:32px;
-    padding: 16px;
+    margin-top:32px;
     text-align: center;
+    padding: 16px;
+}
+
+.text, .product {
     backdrop-filter: blur(10px);
+    background-color: rgba(255,255,255,.3);
     border: 1px solid var(--light);
     border-radius: 8px;
+    box-shadow: 8px 8px 16px var(--shadow);
 }
 .img-and-desc {
     display: flex;
@@ -218,8 +238,6 @@ li {
     display: flex;
     gap: 16px;
     width:500px;
-    border: 1px solid var(--light-gray);
-    /* background-color: var(--); */
     border-radius: 4px;
     margin: 10px;
     backdrop-filter: blur(10px);
@@ -332,7 +350,7 @@ ul {
     max-width:250px;
 }
 
-.div-down {
+.div-down, .footer-text {
     display:flex;
     flex-direction: column;
     gap:8px;
@@ -344,7 +362,7 @@ ul {
 
 /* Stolen from David's Portfolio Site (by David so it's fine)*/
 
-.form-section {
+.form-section, .form-section-overlay {
     text-align: left;
     display:flex;
     width: 250px;
@@ -355,7 +373,6 @@ ul {
     padding:8px;
     padding-bottom: 4px;
     border-radius: 8px;
-    /* background-color: var(--primary); */
     background: radial-gradient(circle at 75% 90%, var(--primary),var(--primary-light) 70%);
     border: 1px solid var(--primary-dark);
     color: var(--light);
@@ -438,4 +455,22 @@ ul {
     opacity: 0;
     font-size: 10%;
     transition: ease-out .3s; 
+}
+.form-wrapper {
+    position: relative;
+    width: 100%;
+    /* max-width: 500px; */
+}
+.form-section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }

@@ -2,15 +2,27 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from "./CartContext";
 import { NavLink } from "react-router-dom";
 import sendIcon from "./assets/send_icon.png";
+import { useRef, useState } from "react";
 
-export function PageLayout({title, SubPage}) {
+export function AddToCartButton({product, quantity}) {
+    const { addToCart } = useCart();
+    return (
+        <button type="button" onClick={() => {
+            addToCart(product, quantity);
+            showToast(`${quantity} items added to cart`);
+        }}>Add to Cart</button>
+    );
+}
+
+export function PageLayout({title, children}) {
     return (
         <div className="container">
             <Header/>
             <Navigation />
             <div className="content">
-                <Title text={title}/>
-                <SubPage/>
+                {(title != null) &&
+                <Title text={title}/>}
+                {children}
             </div>
             <Footer/>
         </div>
@@ -74,15 +86,40 @@ export function showToast(message, duration = 3000) {
 }
 
 function Contact() {
-    return (
-        <div className="contact">
-            <div className="contact-head">
-                Your feedback is important to us, as are your questions. We often
-                respond within 48 hours and will help in any way we can!
-            </div>
+    const formRef = useRef(null);
+    const [formSent, setFormSent] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); //no redirect!
+        const form = formRef.current;
+        const data = new FormData(form);
+
+        const result = await fetch("https://formspree.io/f/xkoonvej", {
+            method: "POST",
+            body: data,
+            headers: {
+                Accept: "applications/json"
+            }
+        });
+
+        if (result.ok) {
+            form.reset();
+            setFormSent(true);
+        }
+    }
+
+    const handleReset = () => {
+        setFormSent(false);
+        formRef.current?.reset();
+    }
+
+    const FormContents = () => {
+        return (
             <form className="form-section"
                 action="https://formspree.io/f/xkoonvej"
-                method="POST">
+                method="POST"
+                ref={formRef}
+                onSubmit={handleSubmit}>
                 <DivDown>
                     <div className="email-section">
                         <label>Your email</label>
@@ -105,6 +142,30 @@ function Contact() {
                     </button>
                 </div>
             </form>
+        );
+    }
+    
+    return (
+        <div className="contact">
+            <div className="contact-head">
+                Your feedback is important to us, as are your questions. We often
+                respond within 48 hours and will help in any way we can!
+            </div>
+
+            <div className="form-wrapper">
+                <FormContents/>
+
+                {formSent && (
+                    <div className="form-section-overlay">
+                        <h2>Thanks for submitting!</h2>
+                        <button className="nice-button"
+                            onClick={handleReset}
+                            >
+                            Send something else?
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
@@ -164,12 +225,12 @@ export function Footer() {
     return (
         <footer>
             <Contact/>
-            <DivDown>
+            <div className="footer-text">
                 <NavLink to="/about">About Us</NavLink>
                 Located in Lindon, UT, USA
                 <a href="https://www.etsy.com/shop/ScriptureCreateLLC">View Our Etsy Page</a>
-                © Scripture Creations LLC, 2026, All rights reserved.
-            </DivDown>
+                © 2026 Scripture Creations LLC. All images are protected by copyright. Unauthorized use is prohibited.
+            </div>
         </footer>
     );
 }

@@ -1,7 +1,6 @@
-import products from './catalog.json';
-import { useCart } from "./CartContext.jsx";
+import products from '../catalog.json';
 import { useState } from "react";
-import { PageLayout, CurrencyUS, MediumImage, showToast } from './Components.jsx';
+import { PageLayout, CurrencyUS, MediumImage, showToast, AddToCartButton } from '../Components.jsx';
 
 function Product({p}) {
     const [quantity, setQuantity] = useState(1);
@@ -29,16 +28,6 @@ function Product({p}) {
     );
 }
 
-function AddToCartButton({product, quantity}) {
-    const { addToCart } = useCart();
-    return (
-        <button type="button" onClick={() => {
-            addToCart(product, quantity);
-            showToast(`${quantity} items added to cart`);
-        }}>Add to Cart</button>
-    );
-}
-
 function ProductList() {
     return (
         <ul>
@@ -50,6 +39,8 @@ function ProductList() {
 
 export default function ProductsPage() {
     return (
-        <PageLayout title="Products Page" SubPage={ProductList}/>
+        <PageLayout title="Products Page">
+            <ProductList/>
+        </PageLayout>
     );
 }

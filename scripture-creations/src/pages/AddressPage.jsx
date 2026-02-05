@@ -1,5 +1,5 @@
-import { useCart } from "./CartContext.jsx";
-import { Header, Title, Navigation, Footer, SmallImage, CurrencyUS, MediumImage, currencyUS, PageLayout} from "./Components.jsx";
+import { useCart } from "../CartContext.jsx";
+import { Header, Title, Navigation, Footer, SmallImage, CurrencyUS, MediumImage, currencyUS, PageLayout} from "../Components.jsx";
 import { NavLink } from "react-router-dom";
 import { FaTrash } from 'react-icons/fa';
 import { createContext, useContext, useState, useEffect } from "react";
@@ -187,7 +187,9 @@ function Cart() {
 
 export default function AddressPage() {
     return (
-        <PageLayout title="Where To Ship" SubPage={Cart}/>
+        <PageLayout title="Where To Ship">
+            <Cart />
+        </PageLayout>
     );
 }
 

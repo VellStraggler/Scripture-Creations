@@ -1,10 +1,14 @@
+import { Link } from "react-router";
 import { getImageURL } from "./Components";
 import { useEffect, useRef } from "react";
 
-export default function ProductCarousel({ products, speed=0.75 }) {
+export default function ProductCarousel({ products, baseSpeed=0.75 }) {
     const ref = useRef(null);
+    const pausedRef = useRef(false);
+
 
     const loopedProducts = [...products, ...products, ...products];
+    let speed = baseSpeed;
 
     useEffect(() => {
         const container = ref.current;
@@ -12,27 +16,36 @@ export default function ProductCarousel({ products, speed=0.75 }) {
 
         let scrollPos = 0;
 
-        const slideWidth = 240; // should match CSS .slide width + gap
-
         const step = () => {
-        scrollPos += speed; // pixels per frame
-
-        if (scrollPos >= container.scrollWidth / 2) {
-            scrollPos = 0; // reset to start
-        }
-
-        container.scrollLeft = scrollPos;
-        requestAnimationFrame(step);
+            if(pausedRef.current) {
+                speed = baseSpeed * .5;
+            } else {
+                speed = baseSpeed;
+            }
+            scrollPos += speed; // pixels per frame
+            
+            if (scrollPos >= container.scrollWidth / 2) {
+                scrollPos = 0; // reset to start
+            }
+            
+            container.scrollLeft = scrollPos;
+            requestAnimationFrame(step);
         };
 
         requestAnimationFrame(step);
     }, [loopedProducts, speed]);
 
+    // Centered Product Highlight Effect
     useEffect(() => {
         const el = ref.current;
         if (!el) return;
-
+        
         const onScroll = () => {
+            if (pausedRef.current) {
+                // return;
+                [...el.children].forEach((child) => child.classList.remove("is-center"));
+                return;
+            }
             [...el.children].forEach((child) => {
                 const box = child.getBoundingClientRect();
                 const childCenter =
@@ -50,23 +63,31 @@ export default function ProductCarousel({ products, speed=0.75 }) {
         };
 
         el.addEventListener("scroll", onScroll);
-        onScroll(); // initial
+        onScroll(); // initial call
 
         return () => el.removeEventListener("scroll", onScroll);
     }, []);
 
     return (
         <div className="carousel-cont"
-            onMouseEnter={() => paused = true}
-            onMouseLeave={() => paused = false}>
+            onMouseEnter={() => pausedRef.current = true}
+            onMouseLeave={() => pausedRef.current = false}>
             <div ref={ref} className="carousel">
-                {loopedProducts.map((p) => (
-                    <div key={p.id} className="slide">
-                        <img src={getImageURL(p)} alt={p.name} />
-                        <div>{p.name}</div>
-                    </div>
+                {loopedProducts.map((p, index) => (
+                    <CarouselItem p={p} index={index} />
                 ))}
             </div>
+        </div>
+    );
+}
+
+export function CarouselItem({p, index}) {
+    return (
+        <div key={(p.id + "-" + index)} className="slide">
+            <Link to={`/products/${p.id}`}>
+                <img src={getImageURL(p)} alt={p.name} />
+                <div>{p.name}</div>
+            </Link>
         </div>
     );
 }
