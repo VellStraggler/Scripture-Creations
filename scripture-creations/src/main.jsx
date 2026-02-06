@@ -19,6 +19,7 @@ export function Routing() {
         <Route index                element={<WelcomePage/>}/>
         <Route path="/products"     element={<ProductsPage/>}/>
         <Route path="/products/:productId" element={<ProductPage/>}/>
+        <Route path="/categories/:category" element={<ProductsPage/>}/>
         <Route path="/cart"         element={<CartPage/>}/>
         <Route path="/address"      element={<AddressPage/>}/>
         <Route path="/about"        element={<AboutPage />}/> 

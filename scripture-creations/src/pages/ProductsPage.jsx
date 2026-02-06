@@ -1,6 +1,7 @@
 import products from '../catalog.json';
 import { useState } from "react";
-import { PageLayout, CurrencyUS, MediumImage, showToast, AddToCartButton } from '../Components.jsx';
+import {useParams} from "react-router-dom";
+import { PageLayout, CurrencyUS, MediumImage, getCategories, showToast, AddToCartButton } from '../Components.jsx';
 
 function Product({p}) {
     const [quantity, setQuantity] = useState(1);
@@ -28,19 +29,21 @@ function Product({p}) {
     );
 }
 
-function ProductList() {
+function ProductList({category}) {
     return (
         <ul>
-            {products.map(product => (
+            {products.filter(product => (product.category === category || category==null))
+                .map(product => (
                 <Product key={product.id} p={product}/>))}
         </ul>
     );
 }
 
 export default function ProductsPage() {
+    const {category} = useParams();
     return (
-        <PageLayout title="Products Page">
-            <ProductList/>
+        <PageLayout title="Products Page" description="All our products. All in one place.">
+            <ProductList category={category}/>
         </PageLayout>
     );
 }

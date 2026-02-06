@@ -13,13 +13,14 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
     --primary: rgb(14, 14, 129);
+    --primary-clear: rgba(14, 14, 129, .5);
     --secondary: rgb(227, 100, 113);
     --primary-light: rgb(54, 79, 240);
     --primary-dark: rgb(7, 7, 89);
     --light: white;
     --light-gray: rgba(240, 240, 255);
     --shadow: rgba(0,0,0,.2);
-    --b:rgb(59, 56, 56);
+    --b:rgb(0, 0, 0);
     --warm-blue: rgb(194, 216, 255);
     --blue-white: rgb(245, 249, 255);
 }
@@ -174,6 +175,46 @@ body, p, li {
     align-items: start;
     justify-content: center;
 }
+.categories {
+    width: 61.8%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
+    gap: 16px;
+    margin: 16px;
+}
+.category {
+    flex: 0 0 clamp(200px, 25%, 250px); /* grow, shrink, width*/
+    aspect-ratio: 1/1;
+    text-align: center;
+    overflow:hidden;
+    transition: transform 0.3s ease;
+}
+.category:hover div {
+    margin: 0;
+    transition: 0.5s;
+}
+.category:hover {
+    transition: 0.3s;
+}
+.category div {
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    margin: 1em;
+}
+.category h2 {
+    margin:0;
+    width: 100%;
+    background-color: var(--primary-clear);
+    color: white;
+    text-shadow: 0px 4px 4px  var(--b);
+}
 .text h2, .text h3 {
     margin:0;
     margin-bottom: 8px;
@@ -182,7 +223,7 @@ body, p, li {
 .text {
     flex-direction: column;
     max-width:500px;
-    width:66%;
+    width:61.8%;
     display:flex;
     justify-content: center;
     justify-self: center;
@@ -192,7 +233,7 @@ body, p, li {
     padding: 16px;
 }
 
-.text, .product {
+.text, .product, .category {
     backdrop-filter: blur(10px);
     background-color: rgba(255,255,255,.3);
     border: 1px solid var(--light);

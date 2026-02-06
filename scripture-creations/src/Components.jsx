@@ -2,7 +2,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from "./CartContext";
 import { NavLink } from "react-router-dom";
 import sendIcon from "./assets/send_icon.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import products from './catalog.json';
 
 export function AddToCartButton({product, quantity}) {
     const { addToCart } = useCart();
@@ -170,14 +171,17 @@ function Contact() {
     );
 }
 
-export function getImageURL(product) {
-    return `${import.meta.env.BASE_URL}images/products/${product.image}`;
+export function getProductImageUrl(product) {
+    return getImageUrl(`products/${product.image}`);
+}
+export function getImageUrl(img) {
+    return `${import.meta.env.BASE_URL}images/${img}`;
 }
 
 export function MediumImage({product}) {
     return (
         <div className="prod-img">
-            <img src={`${import.meta.env.BASE_URL}images/products/${product.image}`} alt={product.name}></img>
+            <img src={getProductImageUrl(product)} alt={product.name}></img>
         </div>
     );
 }
@@ -209,13 +213,32 @@ export function Header() {
         </header>
     );
 }
+
+export function getCategories() {
+    let categories = new Set();
+    products.forEach(product => {
+        categories.add(product.category);
+    });
+    categories = [...categories];
+    return categories;
+}
+
+export function toCapitalized(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 export function Navigation() {
+    const categories = getCategories();
+
     return (
       <nav className="main-nav">
-        <NavLink to="/"         className="nav-link">Welcome</NavLink>
-        <NavLink to="/products" className="nav-link">Products</NavLink>
-        {/* <NavLink to="/contact"  className="nav-link">Contact Us</NavLink> */}
-        {/* <NavLink to="/cart"     className="nav-link">Your Cart</NavLink> */}
+        {/* <NavLink to="/"         className="nav-link">Welcome</NavLink> */}
+        <NavLink to="/products" className="nav-link">All Products</NavLink>
+        {categories.map(category => (
+            <NavLink key={category} to={`/categories/${category}`} className = "nav-link">
+                {toCapitalized(category)}
+            </NavLink>
+        ))}
         <NavLink to="/about"    className="nav-link">About Us</NavLink>
       </nav>
     );
@@ -226,7 +249,11 @@ export function Footer() {
         <footer>
             <Contact/>
             <div className="footer-text">
-                <NavLink to="/about">About Us</NavLink>
+                <NavLink 
+                    to="/about" 
+                    onClick={() => window.scrollTo(0, 0)}>
+                    About Us
+                </NavLink>
                 Located in Lindon, UT, USA
                 <a href="https://www.etsy.com/shop/ScriptureCreateLLC">View Our Etsy Page</a>
                 © 2026 Scripture Creations LLC. All images are protected by copyright. Unauthorized use is prohibited.

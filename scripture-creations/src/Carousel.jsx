@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { getImageURL } from "./Components";
+import { getProductImageUrl } from "./Components";
 import { useEffect, useRef } from "react";
 
 export default function ProductCarousel({ products, baseSpeed=0.75 }) {
@@ -84,8 +84,10 @@ export default function ProductCarousel({ products, baseSpeed=0.75 }) {
 export function CarouselItem({p, index}) {
     return (
         <div key={(p.id + "-" + index)} className="slide">
-            <Link to={`/products/${p.id}`}>
-                <img src={getImageURL(p)} alt={p.name} />
+            <Link to={`/products/${p.id}`} className="slide-img">
+                <img src={getProductImageUrl(p)} alt={p.name} />
+            </Link>
+            <Link to={`/products/${p.id}`} className="slide-bottom-text">
                 <div>{p.name}</div>
             </Link>
         </div>
