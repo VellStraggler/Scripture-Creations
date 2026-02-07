@@ -2,12 +2,16 @@ import { Link } from "react-router";
 import { getProductImageUrl } from "./Components";
 import { useEffect, useRef } from "react";
 
-export default function ProductCarousel({ products, baseSpeed=0.75 }) {
+export default function ProductCarousel({ products, baseSpeed=1.2 }) {
     const ref = useRef(null);
     const pausedRef = useRef(false);
 
+    let featureProducts = products.filter(product => (
+        product.is_featured === "Yes"
+    ));
 
-    const loopedProducts = [...products, ...products, ...products];
+
+    const loopedProducts = [...featureProducts, ...featureProducts, ...featureProducts];
     let speed = baseSpeed;
 
     useEffect(() => {

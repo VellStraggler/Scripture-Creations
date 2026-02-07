@@ -3,6 +3,10 @@ import ProductCarousel from "../Carousel";
 import products from '../catalog.json';
 import { Link } from "react-router";
 
+function addScores(category) {
+    return category.replaceAll(" ", "_")
+}
+
 function CategoryLinks() {
     const categories = getCategories();
     return (
@@ -14,7 +18,7 @@ function CategoryLinks() {
                         onClick={() => window.scrollTo(0, 0)}>
                         <div
                             style={{
-                                backgroundImage: `url(${getImageUrl(`categories/${category}.jpg`)})`
+                                backgroundImage: `url(${getImageUrl(`categories/${addScores(category)}.jpg`)})`
                             }}>
                             <h2>
                                 {toCapitalized(category)}
