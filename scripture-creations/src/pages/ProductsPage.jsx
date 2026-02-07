@@ -2,27 +2,27 @@ import products from '../catalog.json';
 import { useState } from "react";
 import {useParams} from "react-router-dom";
 import { PageLayout, CurrencyUS, MediumImage, getCategories, showToast, AddToCartButton } from '../Components.jsx';
+import { Link } from "react-router";
+
 
 function Product({p}) {
-    const [quantity, setQuantity] = useState(1);
+    const descriptionShort = p.description.length < 100 ? p.description : p.description.slice(0, 100) + "...";
+
     return (
         <li className="product">
-            <MediumImage product={p} />
+            <Link to={`/products/${p.id}`}>
+                <MediumImage product={p} />
+            </Link>
             <div className="prod-data">
-                <div className="prod-info">
-                    <h2>{p.name}</h2>
-                    <p>{p.Description}</p>
+                <Link to={`/products/${p.id}`}>
+                    <div className="prod-info">
+                        <h2>{p.name}</h2>
+                        <p>{descriptionShort}</p>
+                    </div>
+                </Link>
+                <div className="prod-button-simple">
                     <CurrencyUS price={p.price} />
-                </div>
-                <div className="prod-button">
-                    Quantity:
-                    <input type="number" min="1" step="1" max="100" value={quantity} 
-                        pattern="[0-9]*" className="prod-quantity" onChange={(e) => {
-                            let val = Number(e.target.value);
-                            val = Math.min(100, val);
-                            setQuantity((val >= 1) ? val : 1);
-                        }}></input>
-                    <AddToCartButton product={p} quantity={quantity}/>
+                    <AddToCartButton product={p} quantity={1} plus={true}/>
                 </div>
             </div>
         </li>
@@ -41,8 +41,9 @@ function ProductList({category}) {
 
 export default function ProductsPage() {
     const {category} = useParams();
+    const title = (category==null) ? "Products Page" : category + " Products"
     return (
-        <PageLayout title="Products Page" description="All our products. All in one place.">
+        <PageLayout title={title} description="All our products. All in one place.">
             <ProductList category={category}/>
         </PageLayout>
     );

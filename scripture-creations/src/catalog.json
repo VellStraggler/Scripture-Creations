@@ -1,38 +1,242 @@
 [
   {
-    "id": "sku_001",
-    "name": "Articles of Faith Memorization Game",
-    "price": 8,
-    "category": "games",
-    "image": "BoxArticles.jpg",
-    "inStock": "Yes",
-    "Description": "Here is an example description."
+    "id": 67057900453,
+    "name": "Signs of the Times Pamphlet",
+    "price": 3.5,
+    "category": "General",
+    "image": "Signs Pamphlet.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "This pamphlet lists 300+ signs of the times from the LDS scriptures in chronological order including most of the associated scriptures. It uses the Book of Revelation as a base and merges all the other scriptures in trying to keep the events in the order they are mentioned by each prophet."
   },
   {
-    "id": "sku_002",
+    "id": 67057900451,
+    "name": "Signs of the Times Chart",
+    "price": 6,
+    "category": "General",
+    "image": "SignsOfTimes.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "This chart shows 129 prophecies in relationship to the church, the house of Israel, and the world in general.  A concise overview of the times we are living in and the signs of the second coming of Jesus Christ.  Laminated."
+  },
+  {
+    "id": 67057900550,
+    "name": "Missionary Pack (9 bookmarks)",
+    "price": 19.95,
+    "category": "General",
+    "image": "Doctrine of Deity Pamphlet.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Includes: Plan of Salvation, Evidences for Joseph Smith, Evidences for the B. of M., Points of Christ’s True Church, Prophecies Fulfilled by Jesus Christ, Daniel’s Vision of the Restoration, Introduction to The Church of Jesus Christ of Latter-day Saints, Eternal Rewards, LDS Doctrine of Deity, and Book of Mormon study map. "
+  },
+  {
+    "id": 67057900403,
+    "name": "Book of Mormon Study Map Bookmark",
+    "price": 3.5,
+    "category": "Book of Mormon",
+    "image": "Wallmap5x7.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "4.75\" x 7\" bookmark with a map of the relative geography of the Book of Mormon.  All 8.5\" x 11\" chart with a map have a gazetteer on the back to help find locations. Laminated."
+  },
+  {
+    "id": 67057900401,
+    "name": "Book of Mormon Study Map Chart",
+    "price": 6,
+    "category": "Book of Mormon",
+    "image": "Wallmap5x7.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "8.5\" x 11\" map of the relative geography of the Book of Mormon.  Map have a gazetteer on the back to help find locations. Laminated."
+  },
+  {
+    "id": 67057900402,
+    "name": "Book of Mormon Study Map Companion",
+    "price": 2,
+    "category": "Book of Mormon",
+    "image": "Book of Mormon Companion.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "4.75\" x 7\" bookmark with a map of the relative geography of the Book of Mormon.  All 8.5\" x 11\" chart with a map have a gazetteer on the back to help find locations. Laminated."
+  },
+  {
+    "id": 67057900420,
     "name": "Book of Mormon Chronology Bookmark",
-    "price": 4,
-    "category": "bookmarks",
-    "image": "BofMBookmark.jpg",
-    "inStock": "Yes",
-    "Description": "Here is an example description 2."
+    "price": 3.5,
+    "category": "Book of Mormon",
+    "image": "BofMTimeLineFront.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "A time line of Book of Mormon events and people.  Has the authors of the Books in the Book of Mormon and when they wrote.  Has a quick reference for the major stories, events, and quoted scriptures in the Book of Mormon.  Laminated."
   },
   {
-    "id": "sku_003",
-    "name": "\"Hold up your light\" Graphic",
-    "price": 4,
-    "category": "posters",
-    "image": "HoldupLight.jpg",
-    "inStock": "Yes",
-    "Description": "Here is an example description 3."
+    "id": 67057900486,
+    "name": "Genealogy of the 12 Tribes Bookmark",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "Genealogy of 12 Tribes Sm.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "Shows family relationships for Abraham, Isaac, Jacob, & his sons.  Shows from whom the Moabites, Edomites, & Children of Ammon descended.  The back defines the Abrahamic covenant.  Laminated."
   },
   {
-    "id": "sku_004",
-    "name": "Missionary Journey Legend",
-    "price": 0.1,
-    "category": "other",
-    "image": "Missionary Legend.jpg",
-    "inStock": "Yes",
-    "Description": "Here is an example description 4."
+    "id": 67057900487,
+    "name": "Genealogy of the 12 Tribes Chart",
+    "price": 6,
+    "category": "Old Testament",
+    "image": "Genealogy of 12 Tribes Sm.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "Shows family relationships for Abraham, Isaac, Jacob, & his sons.  Shows from whom the Moabites, Edomites, & Children of Ammon descended.  The back defines the Abrahamic covenant.  Laminated."
+  },
+  {
+    "id": 67057900425,
+    "name": "Old Testament Chrolonology Bookmark",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "OTBookmarkFront.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "This bookmark shows a time line of Old Testament events and people.  It shows the patriarchs' births and how long they lived.  Identifies roles of the leaders in Israel and Judah.  Laminated."
+  },
+  {
+    "id": 67057900441,
+    "name": "New Testament Study Map Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "NTMap.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "A 4.75\" x 7\" map of the New Testament area with pictures of many events of Christ's life at the locations where they happened.  Laminated. "
+  },
+  {
+    "id": 67057900440,
+    "name": "New Testament Study Map Chart",
+    "price": 6,
+    "category": "New Testament",
+    "image": "NTMap.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A 8.5 x 11\" map of the New Testament area with pictures of many events of Christ's life at the locations where they happened.  The Map lists all of Jesus Christ's parables, miracles, and events.  Laminated. "
+  },
+  {
+    "id": 67057900435,
+    "name": "Parables of Jesus Christ Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "ParablesSm.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists all the parables of Jesus Christ that are recorded in the New Testament with their references.   Laminated."
+  },
+  {
+    "id": 67057900437,
+    "name": "Miracles of Jesus Christ",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "MiraclesOfJesusChristBackground.JPG",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists all the miracles Jesus performed that are recorded in the New Testament with their references.    Laminated"
+  },
+  {
+    "id": 67057900484,
+    "name": "Revelations Condensed Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "Revelations Condensed.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark condenses the Book of Revelations to provide a list of 107 events leading up to Christ's second coming.  Laminated."
+  },
+  {
+    "id": 67057900416,
+    "name": "Book of Mormon and the American Indian Chart",
+    "price": 6,
+    "category": "Book of Mormon",
+    "image": "BofM-Indians.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This 8.5\" x 11\" Chart combines the prophecies about the American Indians into one concice chart.  Who are they?  Prophecies of the gentiles coming.  Why were they destroyed as a people?  What is their future?  Laminated."
+  },
+  {
+    "id": 67057900456,
+    "name": "Plan of Salvation Bookmark",
+    "price": 3.5,
+    "category": "General",
+    "image": "PlanOfSalvation.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "A 4.75\" x 7\" bookmark showing a detailed plan of salvation chart with a time line of the major events of this earth.  The back contains the associated scripture references.  Laminated."
+  },
+  {
+    "id": 67057900458,
+    "name": "Plan of Salvation Chart",
+    "price": 6,
+    "category": "General",
+    "image": "PlanOfSalvation.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "A 8.5\" x 11\" chart showing the plan of salvation with a time line of the major events of this earth.  The back contains the associated scripture references.  Laminated."
+  },
+  {
+    "id": 67057900414,
+    "name": "Doctrine of Deity Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "Doctrine of Deity Pamphlet.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This 4.75\" x 7z' bookmark shows that the Church of Jesus Christ of Latter-day Saints’ Doctrine of Deity is biblical. It lists over 150 scriptures showing the Godhead is three distinct persons, men are God’s children and can become like him, etc.  Laminated."
+  },
+  {
+    "id": 67057900444,
+    "name": "Church History Study Map Bookmark",
+    "price": 3.5,
+    "category": "Doctrine and Covenants",
+    "image": "CHMap.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A 4.75\" x 7\" map of the United States with locations and events that transpired as church history unfolded.  It shows where each section of the D&C was recieved. The back has the chronology of the early church history.  Laminated."
+  },
+  {
+    "id": 67057900443,
+    "name": "Church History Study Map Chart",
+    "price": 6,
+    "category": "Doctrine and Covenants",
+    "image": "CHMap.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A 8.5z' x 11\" map of the United States with locations and events that transpired as church history unfolded.  It shows where each section of the D&C was recieved. The back has the chronology of the early church history.  Laminated."
+  },
+  {
+    "id": 67057900482,
+    "name": "Eternal Rewards Bookmark",
+    "price": 3.5,
+    "category": "Doctrine and Covenants",
+    "image": "EternalRewards.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark summarizes D&C 76 and contrasts the  telestial, terrestrial, and celestial kingdoms and shows the requirements and rewards for each kingdom.  Laminated."
+  },
+  {
+    "id": 67057900461,
+    "name": "Evidences for Joseph Smith Bookmark",
+    "price": 3.5,
+    "category": "Doctrine and Covenants",
+    "image": "EvidencesForJSMarketingSmall.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists many of the things that Joseph Smith did that are evidences that he truly was a prophet of God.   Laminated."
+  },
+  {
+    "id": 67057900462,
+    "name": "Yard Signs of Jesus",
+    "price": 150,
+    "category": "New Testament",
+    "image": "Box Top.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "10 beautiful 12\" x 18\" yard signs with H-stakes showing images of Jesus. Great for showing your love for Jesus Christ ($15 per image)"
   }
 ]

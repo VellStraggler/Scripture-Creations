@@ -7,7 +7,8 @@ h1, h2, h3, h4, h5, h6 {
                'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   letter-spacing: -0.015em;
-  margin:12px;
+  margin:0px;
+  padding:0px;
 }
 
 
@@ -73,15 +74,20 @@ footer a {
 body, p, li {
     font-family: "Source Sans Pro", sans-serif;
 }
-
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+}
 .main-nav {
     display:flex;
-    gap:2%;
-    justify-content:center;
-    background-color: var(--primary);
+    flex-wrap: wrap;
+    justify-content:space-evenly;
     width:100%;
-    padding:4px 0 4px 0;
-    max-height: 20px;
+    max-width: 1000px;
+    padding:4px 0 0px 0;
+    /* max-height: 20px; */
 }
 
 .nav-link {
@@ -89,6 +95,7 @@ body, p, li {
     color: var(--primary);
     font-weight: 600;
     padding: 1px 8px 1px 8px;
+    margin-bottom: 4px;
     border-radius: 4px;
     transition:0.3s;
 }
@@ -174,6 +181,7 @@ body, p, li {
     flex-wrap: wrap;
     align-items: start;
     justify-content: center;
+    gap:16px;
 }
 .categories {
     width: 61.8%;
@@ -215,9 +223,18 @@ body, p, li {
     color: white;
     text-shadow: 0px 4px 4px  var(--b);
 }
-.text h2, .text h3 {
+
+.currency {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+.currency > *{
+    align-self: start;
+    justify-self: start;
     margin:0;
-    margin-bottom: 8px;
+    padding:0;
 }
 
 .text {
@@ -228,12 +245,17 @@ body, p, li {
     justify-content: center;
     justify-self: center;
     align-items: start;
-    margin-top:32px;
+    margin-top:16px;
     text-align: center;
     padding: 16px;
 }
+.large-desc {
+    max-width: 650px;
+    padding: 16px;
+    box-sizing: border-box;
+}
 
-.text, .product, .category {
+.text, .product, .category, .product-large, .large-desc {
     backdrop-filter: blur(10px);
     background-color: rgba(255,255,255,.3);
     border: 1px solid var(--light);
@@ -257,25 +279,61 @@ body, p, li {
 li {
     text-align: left;
 }
-.prod-img, .prod-img-small {
+.prod-img, .prod-img-small, .prod-img-large {
     width: 200px;
     height: 200px;
     overflow: hidden;
     background-color: var(--light);
     padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prod-img-large{
+    width: 350px;
+    height: 350px;
 }
 .prod-img-small {
     width: 100px;
     height:100px;
 }
 
-.prod-img img, .prod-img-small img{
-    width: 100%;
-    height: 100%;
-    object-fit:contain;
+.prod-img img, .prod-img-small img, .prod-img-large img{
+    width: auto;
+    height: auto;
+    max-width: 95%;
+    max-height: 95%;
+    box-shadow: 4px 4px 4px var(--shadow);
+}
+.prod-img-large img {
+    box-shadow: 0px 4px 12px 8px var(--shadow);
 }
 
-.product, .product-small {
+.product-page-links {
+    width:100%;
+    color: gray;
+}
+.product-page-links >* {
+    color: gray;
+}
+.product-page {
+    text-align: left;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-contents {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    flex-direction: column;
+}
+
+.product, .product-small, .product-large {
     display: flex;
     gap: 16px;
     width:500px;
@@ -285,8 +343,12 @@ li {
 }
 ul {
     padding:0;
-    padding-left: 16px;
+    /* padding-left: 16px; */
     /* list-style:none; */
+}
+.product-large {
+    width: 650px;
+    flex-direction: column;
 }
 .product-small {
     width:350px;
@@ -307,13 +369,16 @@ ul {
     margin: 8px;
 }
 
-.prod-button {
+.prod-button, .prod-button-simple {
     display: flex;
     justify-content: center;
     align-items: center;
     gap:8px;
 }
-.prod-button button, .prod-quantity, .nice-button {
+.prod-button-simple {
+    justify-content: space-between;
+}
+.prod-button button, .prod-quantity, .nice-button, .prod-button-simple button {
     border-radius: 8px;
     border: none;
     padding: 8px 10px 6px 10px;
@@ -322,11 +387,19 @@ ul {
     box-shadow: 0px 2px 0px 2px var(--shadow);
     transition:0.5s;
 }
+.prod-button-simple button {
+    padding: 2px 8px 0 8px;
+    max-height: 32px;
+    transition: 0.3s;
+}
+.prod-button-simple button:hover {
+    background-color: var(--shadow);
+}
 .prod-button button:hover, .nice-button:hover {
     transition:0.5s;
     padding: 8px 16px 6px 16px;
 }
-.prod-button button:active, .nice-button:active {
+.prod-button button:active, .nice-button:active, .prod-button-simple button:active {
     background-color: var(--primary);
     color: var(--light);
 }

@@ -5,13 +5,14 @@ import sendIcon from "./assets/send_icon.png";
 import { useEffect, useRef, useState } from "react";
 import products from './catalog.json';
 
-export function AddToCartButton({product, quantity}) {
+export function AddToCartButton({product, quantity, plus=false}) {
     const { addToCart } = useCart();
+    const text = plus ? <h1>+</h1> : "Add to Cart";
     return (
         <button type="button" onClick={() => {
             addToCart(product, quantity);
             showToast(`${quantity} items added to cart`);
-        }}>Add to Cart</button>
+        }}>{text}</button>
     );
 }
 
@@ -53,9 +54,12 @@ export function Title({text}) {
 export function CurrencyUS({price}) {
     const currencyPrice = currencyUS(price);
     return (
-        <p>
-            {currencyPrice}
-        </p>
+        <div className="currency">
+            <h4>{currencyPrice.charAt(0)}</h4>
+            <h2>{currencyPrice.slice(1, currencyPrice.indexOf("."))}</h2>
+            <h4>{currencyPrice.slice(currencyPrice.indexOf("."))}</h4>
+            {/* {currencyPrice} */}
+        </div>
     );
 }
 export function currencyUS(price) {
@@ -178,6 +182,13 @@ export function getImageUrl(img) {
     return `${import.meta.env.BASE_URL}images/${img}`;
 }
 
+export function LargeImage({product}) {
+    return (
+        <div className="prod-img-large">
+            <img src={getProductImageUrl(product)} alt={product.name}></img>
+        </div>
+    );
+}
 export function MediumImage({product}) {
     return (
         <div className="prod-img">
@@ -188,7 +199,7 @@ export function MediumImage({product}) {
 export function SmallImage({product}) {
     return (
         <div className="prod-img-small">
-            <img src={`${import.meta.env.BASE_URL}images/products/${product.image}`} alt={product.name}></img>
+            <img src={getProductImageUrl(product)} alt={product.name}></img>
         </div>
     );
 }
@@ -231,8 +242,8 @@ export function Navigation() {
     const categories = getCategories();
 
     return (
+    <div className="nav-container">
       <nav className="main-nav">
-        {/* <NavLink to="/"         className="nav-link">Welcome</NavLink> */}
         <NavLink to="/products" className="nav-link">All Products</NavLink>
         {categories.map(category => (
             <NavLink key={category} to={`/categories/${category}`} className = "nav-link">
@@ -241,6 +252,7 @@ export function Navigation() {
         ))}
         <NavLink to="/about"    className="nav-link">About Us</NavLink>
       </nav>
+    </div>
     );
 }
 
