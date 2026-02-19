@@ -4,10 +4,14 @@ import { Header, Navigation, Footer, currencyUS, Title } from "../Components.jsx
 import { useCart } from "../CartContext";
 
 export default function Checkout() {
-  const {getSubTotal} = useCart();
+  const {getSubTotal, getProductIds, getQuantities, getTaxRates} = useCart();
   const amt = getSubTotal();
+  const productIds = getProductIds();
+  const quantities = getQuantities();
+  const taxRates = getTaxRates();
   const [clientToken, setClientToken] = useState(null);
 
+  // Get Braintree token
   useEffect(() => {
     fetch("https://hxvuuzq676.execute-api.us-east-2.amazonaws.com/token")
       .then((res) => res.json())
@@ -56,6 +60,7 @@ function DropInWrapper({ clientToken, amt }) {
     };
   }, [clientToken]);
 
+  // Send payment using token
   async function handlePay() {
     if (!dropinInstance.current) {
       console.error("Drop-In not ready yet");
@@ -71,7 +76,7 @@ function DropInWrapper({ clientToken, amt }) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nonce, amount: amt }),
+          body: JSON.stringify({ nonce, product_ids: productIds, quantities: quantities, tax_rates: taxRates, amount: amt }),
         }
       );
 

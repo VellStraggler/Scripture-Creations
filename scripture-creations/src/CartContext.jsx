@@ -70,6 +70,29 @@ export function CartProvider({ children }) {
         });
         return subTotal;
     }
+    const getProductIds = () => {
+        let productIds = [];
+        cart.forEach(item => {
+            productIds.push(item.id)
+        });
+        return productIds;
+    }
+    const getProductQuantities = () => {
+        let quantities = [];
+        cart.forEach(item => {
+            quantities.push(item.quantity);
+        })
+        return quantities;
+    }
+    const getTaxRates = () => {
+        let taxRates = [];
+        cart.forEach(_ => {
+            taxRates.push(taxRate);
+        });
+        return taxRates;
+    }
+
+
     const getTaxRate = () => {
         return taxRate;
     }
@@ -78,7 +101,9 @@ export function CartProvider({ children }) {
     }
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, removeFromCart, adjustQuantity, getTotalQuantity, getTotal, getTaxRate }}>
+        <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, 
+        removeFromCart, adjustQuantity, getTotalQuantity, getTotal, getTaxRate,
+        getProductIds, getProductQuantities, getTaxRates }}>
             {children}
         </CartContext.Provider>
     );
