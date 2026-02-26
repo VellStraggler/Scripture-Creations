@@ -2,18 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import DropIn from "braintree-web-drop-in";
 import { Header, Navigation, Footer, currencyUS, Title } from "../Components.jsx";
 import { useCart } from "../CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const {getSubTotal, getProductIds, getQuantities, getTaxRates} = useCart();
-  const amt = getSubTotal();
+  const {getTotal, getProductIds, getQuantities, getTaxRates} = useCart();
+  const amt = getTotal();
   const productIds = getProductIds();
   const quantities = getQuantities();
   const taxRates = getTaxRates();
   const [clientToken, setClientToken] = useState(null);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
   // Get Braintree token
   useEffect(() => {
-    fetch("https://hxvuuzq676.execute-api.us-east-2.amazonaws.com/token")
+    fetch(`${API_BASE}/token`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Received client token:", data.clientToken);
@@ -24,14 +26,21 @@ export default function Checkout() {
 
   if (!clientToken) return <div className="container">Loading payment options...</div>;
 
-  return <DropInWrapper clientToken={clientToken} amt={amt} />;
+  return <DropInWrapper 
+    clientToken={clientToken} 
+    amt={amt} 
+    productIds={productIds}
+    quantities={quantities}
+    taxRates={taxRates}/>;
 }
 
-function DropInWrapper({ clientToken, amt }) {
+function DropInWrapper({ clientToken, amt, productIds, quantities, taxRates }) {
   const dropinContainer = useRef(null);
   const dropinInstance = useRef(null);
   const [loading, setLoading] = useState(false);
   const [ready, setReady] = useState(false);
+  const {resetCart} = useCart();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     if (!clientToken) return;
@@ -55,7 +64,11 @@ function DropInWrapper({ clientToken, amt }) {
 
     return () => {
       if (dropinInstance.current) {
-        dropinInstance.current.teardown().then(() => console.log("Drop-In torn down"));
+        dropinInstance.current
+          .teardown()
+          .catch(() => {});
+        dropinInstance.current = null;
+        console.log("Drop-In torn down");
       }
     };
   }, [clientToken]);
@@ -72,7 +85,7 @@ function DropInWrapper({ clientToken, amt }) {
       console.log("Payment method nonce:", nonce);
 
       const res = await fetch(
-        "https://hxvuuzq676.execute-api.us-east-2.amazonaws.com/purchase",
+        `${API_BASE}/purchase`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -81,8 +94,12 @@ function DropInWrapper({ clientToken, amt }) {
       );
 
       const data = await res.json();
-      console.log("Transaction result:", data);
-      if (data.success) alert("Payment successful");
+      if (data.success) {
+        console.log("Transaction result:", data);
+        alert("Payment successful");
+        resetCart();
+        useNavigate("/payment-success");
+      } 
       else console.error("Payment failed", data);
     } catch (err) {
       console.error("Payment error:", err);

@@ -154,7 +154,7 @@ function RemoveFromCart({product}) {
 }
 
 function Cart() {
-    const { cart, getSubTotal, getTotal, getTaxRate } = useCart();
+    const { cart, getSubTotal, getTotal, getTaxRatePrint } = useCart();
     if (cart.length == 0) {
         return (
             <div className="text">
@@ -173,8 +173,8 @@ function Cart() {
             <div>
                 <div className="money-box">
                     <div>Subtotal: {currencyUS(getSubTotal(cart))}</div>
-                    <div>Tax Rate: {getTaxRate(cart)*100}%</div>
-                    <h4>Total:    {currencyUS(getTotal(cart))}</h4>
+                    <div>Tax Rate: {getTaxRatePrint(cart)}</div>
+                    <h4> Total:    {currencyUS(getTotal(cart))}</h4>
                 </div>
                 <AddressForms />
                 <div className="centered">

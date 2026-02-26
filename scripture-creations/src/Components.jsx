@@ -58,12 +58,14 @@ export function CurrencyUS({price}) {
             <h4>{currencyPrice.charAt(0)}</h4>
             <h2>{currencyPrice.slice(1, currencyPrice.indexOf("."))}</h2>
             <h4>{currencyPrice.slice(currencyPrice.indexOf("."))}</h4>
-            {/* {currencyPrice} */}
         </div>
     );
 }
 export function currencyUS(price) {
     return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(price);
+}
+export function roundCurrency(amt) {
+    return Number((Math.round(amt*100))/100).toFixed(2);
 }
 
 export function showToast(message, duration = 3000) {

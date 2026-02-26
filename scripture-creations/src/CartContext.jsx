@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { roundCurrency } from "./Components";
 
 const CartContext = createContext();
-const taxRate = 0.03;
+const taxRate = 0.07;
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(() => {
@@ -77,7 +78,7 @@ export function CartProvider({ children }) {
         });
         return productIds;
     }
-    const getProductQuantities = () => {
+    const getQuantities = () => {
         let quantities = [];
         cart.forEach(item => {
             quantities.push(item.quantity);
@@ -96,14 +97,17 @@ export function CartProvider({ children }) {
     const getTaxRate = () => {
         return taxRate;
     }
+    const getTaxRatePrint = () => {
+        return (roundCurrency(getTaxRate(cart)*100)) + "%";
+    }
     const getTotal = () => {
-        return getSubTotal()*(1+taxRate);
+        return roundCurrency(getSubTotal()*(1+taxRate));
     }
 
     return (
         <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, 
-        removeFromCart, adjustQuantity, getTotalQuantity, getTotal, getTaxRate,
-        getProductIds, getProductQuantities, getTaxRates }}>
+        removeFromCart, getTaxRatePrint, adjustQuantity, getTotalQuantity, getTotal, getTaxRate,
+        getProductIds, getQuantities, getTaxRates }}>
             {children}
         </CartContext.Provider>
     );

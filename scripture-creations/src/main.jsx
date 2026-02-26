@@ -12,6 +12,7 @@ import CartPage from "./pages/CartPage";
 import AddressPage from "./pages/AddressPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import Checkout from "./lambda/fetchToken.jsx";
+import SuccessPage from "./pages/SuccessPage.jsx";
 
 export function Routing() {
     return (
@@ -24,6 +25,7 @@ export function Routing() {
         <Route path="/address"      element={<AddressPage/>}/>
         <Route path="/about"        element={<AboutPage />}/> 
         <Route path="/token"        element={<Checkout />}/> 
+        <Route path="/payment-success"element={<SuccessPage />}/> 
       </Routes>
     );
 }
