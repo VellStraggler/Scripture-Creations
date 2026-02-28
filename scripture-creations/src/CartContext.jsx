@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { roundCurrency } from "./Components";
 
 const CartContext = createContext();
-const taxRate = 0.07;
+const taxRate = 0.07; //a constant in AWS Lambda
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(() => {

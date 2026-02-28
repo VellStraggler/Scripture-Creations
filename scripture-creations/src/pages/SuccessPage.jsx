@@ -1,20 +1,26 @@
 import { NavLink } from "react-router-dom";
+import { PageLayout } from "../Components";
 
-export default function SuccessPage() {
+function Success() {
     return (
-        <div className="container">
-            <Header />
-            <Navigation />
-            <Title text="Checkout"/>
-            <div className="content">
-                <div>
-                    Your payment has been processed, and your receipt has been mailed to you.
-                </div>
+        <div>
+
+        <div className="text">
+            Your payment has been processed, and your receipt has been mailed to you. Thank you for shopping at Scripture Creations.
+            <div className="centered">
+
+        </div>
                 <NavLink to="/" title="Home Page" className="nice-button">
                     Back to Home
                 </NavLink>
             </div>
-            <Footer />
         </div>
+    );
+}
+export default function SuccessPage() {
+    return (
+        <PageLayout title="Checked Out">
+            <Success/>
+        </PageLayout>
     );
 }

@@ -2,16 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import DropIn from "braintree-web-drop-in";
 import { Header, Navigation, Footer, currencyUS, Title } from "../Components.jsx";
 import { useCart } from "../CartContext";
+import { useAddress } from "../AddressContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const {getTotal, getProductIds, getQuantities, getTaxRates} = useCart();
+  const {getTotal, getProductIds, getQuantities} = useCart();
   const amt = getTotal();
   const productIds = getProductIds();
   const quantities = getQuantities();
-  const taxRates = getTaxRates();
   const [clientToken, setClientToken] = useState(null);
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
+  const {addressInfo} = useAddress();
 
   // Get Braintree token
   useEffect(() => {
@@ -31,16 +32,17 @@ export default function Checkout() {
     amt={amt} 
     productIds={productIds}
     quantities={quantities}
-    taxRates={taxRates}/>;
+    addressInfo={addressInfo}/>;
 }
 
-function DropInWrapper({ clientToken, amt, productIds, quantities, taxRates }) {
+function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo}) {
   const dropinContainer = useRef(null);
   const dropinInstance = useRef(null);
   const [loading, setLoading] = useState(false);
   const [ready, setReady] = useState(false);
   const {resetCart} = useCart();
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!clientToken) return;
@@ -82,23 +84,23 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, taxRates }) {
     try {
       setLoading(true);
       const { nonce } = await dropinInstance.current.requestPaymentMethod();
-      console.log("Payment method nonce:", nonce);
+      // console.log("Payment method nonce:", nonce);
 
       const res = await fetch(
         `${API_BASE}/purchase`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nonce, product_ids: productIds, quantities: quantities, tax_rates: taxRates, amount: amt }),
+          body: JSON.stringify({ nonce, product_ids: productIds, quantities: quantities, amount: amt, addressInfo: addressInfo }),
         }
       );
 
       const data = await res.json();
       if (data.success) {
-        console.log("Transaction result:", data);
-        alert("Payment successful");
+        // console.log("Transaction result:", data);
+        navigate("/success");
         resetCart();
-        useNavigate("/payment-success");
+        alert("Payment successful");
       } 
       else console.error("Payment failed", data);
     } catch (err) {
