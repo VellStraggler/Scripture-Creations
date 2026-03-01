@@ -2,7 +2,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from "./CartContext";
 import { NavLink } from "react-router-dom";
 import sendIcon from "./assets/send_icon.png";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import products from './catalog.json';
 
 export function AddToCartButton({product, quantity, plus=false}) {
@@ -177,9 +177,22 @@ function Contact() {
     );
 }
 
-export function getProductImageUrl(product) {
-    return getImageUrl(`products/${product.image}`);
+export function getProductImageUrl(product, suffix="sm") {
+    if (!product) return "";
+
+    const image = typeof product.image === "string"
+        ? product.image
+        : product.image?.url || product.image?.src || "";
+
+    if (!image) return "";
+
+    const base = image.endsWith(".jpg")
+        ? image.slice(0, -4)
+        : image.replace(/\/$/, "");
+
+    return `${import.meta.env.BASE_URL}images/products/${base}-${suffix}.webp`;
 }
+
 export function getImageUrl(img) {
     return `${import.meta.env.BASE_URL}images/${img}`;
 }
@@ -187,21 +200,21 @@ export function getImageUrl(img) {
 export function LargeImage({product}) {
     return (
         <div className="prod-img-large">
-            <img src={getProductImageUrl(product)} alt={product.name}></img>
+            <img src={getProductImageUrl(product, "lg")} alt={product.name}></img>
         </div>
     );
 }
 export function MediumImage({product}) {
     return (
         <div className="prod-img">
-            <img src={getProductImageUrl(product)} alt={product.name}></img>
+            <img src={getProductImageUrl(product, "md")} alt={product.name}></img>
         </div>
     );
 }
 export function SmallImage({product}) {
     return (
         <div className="prod-img-small">
-            <img src={getProductImageUrl(product)} alt={product.name}></img>
+            <img src={getProductImageUrl(product, "sm")} alt={product.name}></img>
         </div>
     );
 }
@@ -215,7 +228,6 @@ export function Header() {
                 <img src={`${import.meta.env.BASE_URL}images/other/logolong.gif`} alt="Scripture Creations Logo" height="50px"/>
             </NavLink>
             <div className="header-edge">
-                {/* <a href="sign-in.html">Sign In</a> */}
                 <div className="cart-section">
                     <NavLink title={`View Cart (${cart.length} items)`} to="/cart" className="nice-button">
                         <FaShoppingCart size={24} color="black" />

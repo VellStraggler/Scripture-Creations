@@ -18,7 +18,7 @@ function CategoryLinks() {
                         onClick={() => window.scrollTo(0, 0)}>
                         <div
                             style={{
-                                backgroundImage: `url(${getImageUrl(`categories/${addScores(category)}.jpg`)})`
+                                backgroundImage: `url(${getImageUrl(`categories/${addScores(category)}-md.webp`)})`
                             }}>
                             <h2>
                                 {toCapitalized(category)}
