@@ -73,10 +73,10 @@ export default function ProductCarousel({ products, baseSpeed=1.2 }) {
     }, []);
 
     return (
-        <div className="carousel-cont"
-            onMouseEnter={() => pausedRef.current = true}
-            onMouseLeave={() => pausedRef.current = false}>
-            <div ref={ref} className="carousel">
+        <div className="carousel-container">
+            <div ref={ref} className="carousel"
+                onMouseEnter={() => pausedRef.current = true}
+                onMouseLeave={() => pausedRef.current = false}>
                 {loopedProducts.map((p, index) => (
                     <CarouselItem p={p} index={index} />
                 ))}

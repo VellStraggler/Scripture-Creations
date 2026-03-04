@@ -289,6 +289,12 @@ li {
     max-height: 95%;
     box-shadow: 4px 4px 4px var(--shadow);
 }
+@media screen and (max-width: 500px) {
+    .prod-img, .prod-img-large, .prod-img-small, .product-large {
+        width:100%;
+        padding:0;
+    }
+}
 .prod-img-large img {
     box-shadow: 0px 4px 12px 8px var(--shadow);
 }
@@ -325,17 +331,19 @@ li {
     margin: 10px;
     backdrop-filter: blur(10px);
 }
-ul {
-    padding:0;
-    /* padding-left: 16px; */
-    /* list-style:none; */
-}
 .product-large {
     width: 650px;
     flex-direction: column;
 }
 .product-small {
     width:350px;
+}
+@media screen and (max-width:500px) {
+    .product, .product-large {
+        flex-direction: column;
+        width:100%;
+        align-content: center;
+    }
 }
 .prod-info *{
     margin: 0px;
@@ -375,6 +383,10 @@ ul {
     padding: 2px 8px 0 8px;
     max-height: 32px;
     transition: 0.3s;
+}
+ul {
+    padding:0;
+    padding-left: 16px;
 }
 .prod-button-simple button:hover {
     background-color: var(--shadow);
@@ -463,6 +475,11 @@ input[type="number"]::-webkit-outer-spin-button {
 .div-cols {
     display:flex;
     flex-direction: row;
+}
+@media screen and (max-width:500px) {
+    .div-cols {
+        flex-direction: column;
+    }
 }
 
 /* Stolen from David's Portfolio Site (by David so it's fine)*/
