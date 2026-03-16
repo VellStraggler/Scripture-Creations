@@ -43,6 +43,7 @@ footer, .footer {
     display:flex;
     flex-direction: row;
     text-align: right;
+    flex-wrap: wrap;
     background-color: var(--primary);
     color: var(--light);
     gap:26px;
@@ -479,6 +480,15 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (max-width:500px) {
     .div-cols {
         flex-direction: column;
+    }
+    .footer-text {
+        flex-direction: row;
+        /* max-width: 100%; */
+    }
+}
+@media screen and (max-width: 700px) {
+    .footer-text {
+        max-width: 100%;
     }
 }
 
