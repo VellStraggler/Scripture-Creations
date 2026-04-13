@@ -31,7 +31,7 @@ function Product({p}) {
 
 function ProductList({category}) {
     return (
-        <ul>
+        <ul className="products">
             {products.filter(product => (product.category === category || category==null))
                 .map(product => (
                 <Product key={product.id} p={product}/>))}

@@ -11,6 +11,7 @@ function CategoryLinks() {
     const categories = getCategories();
     return (
         <div className="categories">
+            <Title text="Categories" basic={true}/>
             {categories.map(category => (
                 <div key={category} className = "category">
                     <Link 
@@ -41,7 +42,6 @@ function Welcome() {
     return(
         <div>
             <WelcomeCarousel />
-            <Title text="Categories"/>
             <CategoryLinks />
         </div>
     );
@@ -49,7 +49,7 @@ function Welcome() {
 
 export default function WelcomePage() {
     return (
-        <PageLayout title="Welcome to Scripture Creations">
+        <PageLayout title=<i>"Strengthening Families in Jesus Christ"</i>>
             <Welcome/>
         </PageLayout> 
     );

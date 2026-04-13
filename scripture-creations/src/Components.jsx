@@ -46,7 +46,12 @@ export function DivCols({children}) {
     )
 }
 
-export function Title({text}) {
+export function Title({text, basic=false}) {
+    if (basic) {
+        return (
+            <h1 className='title-basic'>{text}</h1>
+        );
+    }
     return (
         <h1 className='title'>{text}</h1>
     );

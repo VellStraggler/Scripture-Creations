@@ -6,17 +6,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    backdrop-filter: blur(10px);
     overflow: hidden;
+    padding: 16px;
 }
 
 .carousel {
+    background-color: rgba(255, 255, 255, .5);
     border: 2px solid var(--primary);
     display: flex;
     overflow-x: hidden;
     width: 61%;
     justify-self: center;
-    height: 320px;
+    height: 340px;
     overflow-y: hidden;
     gap: 40px;
     scrollbar-width: thin;                 /* Firefox */

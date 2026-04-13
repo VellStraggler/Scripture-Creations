@@ -38,7 +38,7 @@ export function Routing() {
 
 const root = createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename="/Scripture-Creations/">
+  <BrowserRouter basename="/">
       <CartProvider>
         <AddressProvider>
 
