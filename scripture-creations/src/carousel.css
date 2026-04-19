@@ -12,7 +12,9 @@
 
 .carousel {
     background-color: rgba(255, 255, 255, .5);
-    border: 2px solid var(--primary);
+    border: 3px solid white;
+    box-shadow: 0 0 16px 8px var(--shadow);
+    border-radius:8px;
     display: flex;
     overflow-x: hidden;
     width: 61%;

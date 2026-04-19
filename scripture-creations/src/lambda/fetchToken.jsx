@@ -25,7 +25,7 @@ export default function Checkout() {
       .catch((err) => console.error("Token fetch error:", err));
   }, []);
 
-  if (!clientToken) return <div className="container">Loading payment options...</div>;
+  if (!clientToken) return <div className="container"><div className="title-basic">Loading payment options...</div></div>;
 
   return <DropInWrapper 
     clientToken={clientToken} 

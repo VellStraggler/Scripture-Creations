@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 * {
     text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -102,8 +103,8 @@ body, p, li {
 .nav-link:hover {
     transition:0.3s;
     padding: 1px 16px 1px 16px;
-    margin:  4 -4px 4px -4px;
-    background-color: var(--primary);
+    margin:  4px -4px 4px -4px;
+    background-color: var(--primary-light);
 }
 
 .site-header {
