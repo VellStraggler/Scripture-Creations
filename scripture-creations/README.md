@@ -33,6 +33,20 @@ npm run build
 npm run deploy
 ```
 
+# Where to place images
+You'll find the place to put product images in:
+```
+scripture-creations/public/images/products
+```
+The catalog excel file to replace is found in:
+```
+scripture-creations/catalog.xlsx
+```
+It should have a '?' box icon
+
+## Mention of a high severity vulnerability
+This is related to the xlsx module which is only utilized to transfer the catalog to a json file. Ignore entirely.
+
 ## DEVELOPER WARNINGS:
 Test environment still runs full purchasing functionality. You have been warned.
 To anyone who somehow got their hands on this site's Git history, you won't find any Braintree keys here. 
