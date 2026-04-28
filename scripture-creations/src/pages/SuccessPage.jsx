@@ -6,7 +6,7 @@ function Success() {
         <div>
 
         <div className="text">
-            Your payment has been processed, and your receipt has been mailed to you. Thank you for shopping at Scripture Creations.
+            Your payment has been successfully processed, and your receipt has been mailed to you. Thank you for shopping at Scripture Creations.
             <div className="centered">
 
         </div>

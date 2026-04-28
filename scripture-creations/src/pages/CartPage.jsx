@@ -24,9 +24,37 @@ function AddressForms() {
 
   return (
     <div className="addresses">
+      <ReceiptEmail formData={formData} setFormData={setFormData} />
       <ShippingAddress formData={formData} setFormData={setFormData} />
       <BillingAddress formData={formData} setFormData={setFormData} />
     </div>
+  );
+}
+
+function ReceiptEmail({ formData, setFormData, prefix}) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [prefix]: {
+        ...prev[prefix],
+        [name]: value
+      },
+      ...(name === "email" ? { email: value } : {}) // update email if editing email field
+    }));
+  };
+  return (
+      <form>
+          <h2>Email Address</h2>
+          <div className="address">
+            <div>
+                <label>Email for Purchase Receipt</label>
+                <input name="email" type="email" required 
+                    value={formData[prefix]?.email || ""}
+                    onChange={handleChange}/>
+            </div>
+          </div>
+      </form>
   );
 }
 
@@ -52,12 +80,12 @@ function AddressForm({ formData, setFormData, prefix }) {
             value={formData[prefix]?.custName || ""}
             onChange={handleChange} />
         </div>
-        <div>
+        {/* <div>
           <label>Email</label>
           <input name="email" type="email" required
             value={formData.email || formData[prefix]?.email || ""}
             onChange={handleChange} />
-        </div>
+        </div> */}
         <div>
           <label>Address Line 1</label>
           <input name="line1" type="text" required

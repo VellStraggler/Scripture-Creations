@@ -7,7 +7,7 @@ import sharp from "sharp";
    ============================================================ */
 
 // ⭐ DESTROY SWITCH — Set to true to wipe all webp images first
-const destroy = false;
+const destroy = true;
 
 // Base directory (one level above products)
 const BASE_FOLDER = path.join(

@@ -50,6 +50,16 @@
     "description": "8.5\" x 11\" map of the relative geography of the Book of Mormon.  Map have a gazetteer on the back to help find locations. Laminated."
   },
   {
+    "id": 67057900410,
+    "name": "Book of Mormon Study Map Wall Chart",
+    "price": 20,
+    "category": "Book of Mormon",
+    "image": "Wallmap5x7.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "19\" x 26\" wall map of the relative geography of the Book of Mormon.  Map have a gazetteer and scriptures mentioning each location on the back to help find locations. Laminated."
+  },
+  {
     "id": 67057900402,
     "name": "Book of Mormon Study Map Companion",
     "price": 2,
@@ -134,7 +144,7 @@
     "name": "Miracles of Jesus Christ",
     "price": 3.5,
     "category": "New Testament",
-    "image": "MiraclesOfJesusChristBackground.JPG",
+    "image": "MiraclesOfJesusChristBackground.jpg",
     "in_stock": "Yes",
     "is_featured": "No",
     "description": "This bookmark lists all the miracles Jesus performed that are recorded in the New Testament with their references.    Laminated"
@@ -164,7 +174,7 @@
     "name": "Plan of Salvation Bookmark",
     "price": 3.5,
     "category": "General",
-    "image": "PlanOfSalvation.jpg",
+    "image": "PlanOFSalvation.jpg",
     "in_stock": "Yes",
     "is_featured": "Yes",
     "description": "A 4.75\" x 7\" bookmark showing a detailed plan of salvation chart with a time line of the major events of this earth.  The back contains the associated scripture references.  Laminated."
@@ -174,7 +184,7 @@
     "name": "Plan of Salvation Chart",
     "price": 6,
     "category": "General",
-    "image": "PlanOfSalvation.jpg",
+    "image": "PlanOFSalvation.jpg",
     "in_stock": "Yes",
     "is_featured": "Yes",
     "description": "A 8.5\" x 11\" chart showing the plan of salvation with a time line of the major events of this earth.  The back contains the associated scripture references.  Laminated."
@@ -194,7 +204,7 @@
     "name": "Church History Study Map Bookmark",
     "price": 3.5,
     "category": "Doctrine and Covenants",
-    "image": "CHMap.jpg",
+    "image": "ChMap.jpg",
     "in_stock": "Yes",
     "is_featured": "No",
     "description": "A 4.75\" x 7\" map of the United States with locations and events that transpired as church history unfolded.  It shows where each section of the D&C was recieved. The back has the chronology of the early church history.  Laminated."
@@ -204,7 +214,7 @@
     "name": "Church History Study Map Chart",
     "price": 6,
     "category": "Doctrine and Covenants",
-    "image": "CHMap.jpg",
+    "image": "ChMap.jpg",
     "in_stock": "Yes",
     "is_featured": "No",
     "description": "A 8.5z' x 11\" map of the United States with locations and events that transpired as church history unfolded.  It shows where each section of the D&C was recieved. The back has the chronology of the early church history.  Laminated."
@@ -232,11 +242,281 @@
   {
     "id": 67057900210,
     "name": "Yard Signs of Jesus",
-    "price": 150,
+    "price": 99,
     "category": "New Testament",
     "image": "Box Top.jpg",
     "in_stock": "Yes",
     "is_featured": "Yes",
-    "description": "10 beautiful 12\" x 18\" yard signs with H-stakes showing images of Jesus. Great for showing your love for Jesus Christ ($15 per image)"
+    "description": "10 beautiful 12\" x 18\" yard signs with H-stakes showing images of Jesus. Great for showing your love for Jesus Christ at Christmas, Easter, or anytime.  ($15 per sign)"
+  },
+  {
+    "id": 67057900140,
+    "name": "Articles of Faith Memorization Game",
+    "price": 8,
+    "category": "Games",
+    "image": "ArticlesBox.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A card game to help memorize the Articles of Faith.  Each Article of Faith card has a picture clue to help with memorization.  Includes a die and a brief history of the Articles of Faith."
+  },
+  {
+    "id": 67057900130,
+    "name": "Fishing for Nephites Game (go fish)",
+    "price": 9,
+    "category": "Games",
+    "image": "FishingBox.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Play \"Fish\" using pictures of events that transpired in the Book of Mormon.  Teaches names of characters in the Book of Mormon and events.  Cards are UV coated for durability."
+  },
+  {
+    "id": 67057900301,
+    "name": "The Frugal Family Game",
+    "price": 7,
+    "category": "Games",
+    "image": "FrugalFamily.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Players are each given a dollar and watch it dwindle as the lights are left on, food is wasted, water bills rise, possessions are not taken care of, etc.  Helps family members learn that money is either saved or wasted depending on the choices they make.  Comes with eight pawns.  Laminated."
+  },
+  {
+    "id": 67057900495,
+    "name": "Abrahamic Covenant Chart",
+    "price": 6,
+    "category": "Old Testament",
+    "image": "AbrahamicCovenantMarketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This chart explains the Abrahamic Covenant, who it is to and what it is.   Laminated."
+  },
+  {
+    "id": 67057900488,
+    "name": "The Lost 10 Tribes Chart",
+    "price": 6,
+    "category": "Old Testament",
+    "image": "LostTribesMarketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This chart lists what we know of the lost tribes, where they went, where they are, when and how will they return.   Laminated."
+  },
+  {
+    "id": 67057900472,
+    "name": "Miracles of the Old Testament Bookmark",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "Miracles of the OT.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists the miracles recorded in the Old Testament with their scripture references.  Laminated."
+  },
+  {
+    "id": 67057900431,
+    "name": "Events of the Old Testament Bookmark",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "events-of-the-old-testament-bookmark.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark is designed as a quick reference for major events that happened in the Old Testament and their scripture references.  Laminated."
+  },
+  {
+    "id": 67057900463,
+    "name": "Daniel's Vision of the Restoration Bookmark",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "Daniels Vision.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark shows how Daniel saw the year when Joseph Smith would complete the restoration and “the sanctuary” would be cleansed.    Laminated."
+  },
+  {
+    "id": 67057900470,
+    "name": "Prophecies Fulfilled by Jesus Christ Bkmrk",
+    "price": 3.5,
+    "category": "Old Testament",
+    "image": "PropheciesOfChristMarketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists many of the prophecies about Jesus Christ recorded in the Old Testament with their scripture references.  Laminated."
+  },
+  {
+    "id": 67057900427,
+    "name": "Events of the New Testament Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "NTEvents.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists many major events in the New Testament, their locations, and the scripture reference.    Laminated."
+  },
+  {
+    "id": 67057900464,
+    "name": "Points of Christ's True Church Bookmark",
+    "price": 3.5,
+    "category": "New Testament",
+    "image": "Points of Christs True Church.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists 48 doctrines that were taught by Jesus and his disciples that should exist in His church today.  All references are from the Bible.  Laminated."
+  },
+  {
+    "id": 67057900460,
+    "name": "Evidences for the Book of Mormon Bookmark",
+    "price": 3.5,
+    "category": "Book of Mormon",
+    "image": "EvidencesForBofMMarketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists many of the evidences for the Book of Mormon.  Laminated."
+  },
+  {
+    "id": 67057900417,
+    "name": "Miracles of the Book of Mormon Bookmark",
+    "price": 3.5,
+    "category": "Book of Mormon",
+    "image": "Book of Mormon Miracles.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Lists many of the miracles spoken of in the Book of Mormon.  Laminated."
+  },
+  {
+    "id": 67057900418,
+    "name": "People of the Book of Mormon Chart",
+    "price": 6,
+    "category": "Book of Mormon",
+    "image": "People of BofM.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "List all the people in the Book of Mormon (non-Jaradite) in the chronological order they are mentioned.  It indicates their main roles and affiliations.  A great Book of Mormon overview and study help. Laminated."
+  },
+  {
+    "id": 67057900445,
+    "name": "Doctrine and Covenants Quick Reference Bookmark ",
+    "price": 3.5,
+    "category": "Doctrine and Covenants",
+    "image": "QuickReferenceMarketingSm.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A bookmark that lists church doctrine and oft quoted scriptures and where to find them in the Doctrine and Covenants.  Laminated."
+  },
+  {
+    "id": 67057900466,
+    "name": "Priesthood Offices, Quorums and Duties Bookmark",
+    "price": 3.5,
+    "category": "Doctrine and Covenants",
+    "image": "PriesthoodSm.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark lists the offices, quorums, and duties of the Aaronic & Melchizedek Priesthood and includes the scripture references associated with each office.  Laminated."
+  },
+  {
+    "id": 67057900462,
+    "name": "Evidences for Joseph Smith & Book of Mormon",
+    "price": 6,
+    "category": "General",
+    "image": "PlaceMatJSEvidencesMarketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Shows many evidences why Joseph Smith was a prophet and why the Book of Mormon is a true book of scripture.  One side shows the evidences for Joseph Smith and the other shows evidences for the Book of Mormon. Great teaching chart for Sunday School, Seminary, and Family Home Evening. Can be used as a placemat to strengthen faith every morning.  Laminated."
+  },
+  {
+    "id": 67057900480,
+    "name": "Introduction to the Church of Jesus Christ of Latter-day Saints Bookmark",
+    "price": 3.5,
+    "category": "General",
+    "image": "Introduction to Church.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "This bookmark is designed as a pass along card to share LDS beliefs with those who would like to know more about the Church of Jesus Christ of Latter-day Saints. Laminated."
+  },
+  {
+    "id": 67057900481,
+    "name": "Introduction to the Church of Jesus Christ of Latter-day Saints 10-pack",
+    "price": 10,
+    "category": "General",
+    "image": "Introduction to Church.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "These cards are designed to share LDS beliefs with those who would like to know more about the Church of Jesus Christ of Latter-day Saints. Pack of 10 cards to leave out on your desk or wherever those interested can find them or pass along to someone who might be interested.  Laminated."
+  },
+  {
+    "id": 67057900900,
+    "name": "2500 Signs of the Times in Chronological Order ebook",
+    "price": 5,
+    "category": "General",
+    "image": "2500Signs.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "This book gives a comprehensive list of scriptures about future events. It takes Revelation, Mathew 24, Luke 20, and JS Mathew as a skeleton and adds in all the other references attempting to keep them in the order given in each chapter. Great for a deep dive into the Signs of Christ's coming."
+  },
+  {
+    "id": 67057900910,
+    "name": "Ri Conquers the Multiverse ebook",
+    "price": 5,
+    "category": "General",
+    "image": "RiFinal.jpg",
+    "in_stock": "Yes",
+    "is_featured": "Yes",
+    "description": "Follow a young intelligence as he learns and grows while moving through worlds of his progression. A little \"coming of age\", a little \"a boy and his dog\" and a little romance. \"Ri Conquers the Multiverse\" will change your view your life."
+  },
+  {
+    "id": 67057900407,
+    "name": "Deep State in the Book of Mormon",
+    "price": 5.99,
+    "category": "Book of Mormon",
+    "image": "Deep State Image.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "The Deep State, Secret Combinations, is talked about more in the Book of Mormon than America being a choice land. Why did Moroni warn us of this threat? How can we identify them?"
+  },
+  {
+    "id": 67057900225,
+    "name": "Images of Jesus Coloring Book",
+    "price": 5.99,
+    "category": "General",
+    "image": "Coloring Book Front for Marketing.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Coloring book with 20 pictures and titles of Jesus. 8.5\" x 11\""
+  },
+  {
+    "id": 67057900250,
+    "name": "Picture Puzzle",
+    "price": 9.99,
+    "category": "General",
+    "image": "Puzzle 1 Cover.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "10 pictures of Jesus with small snips from the pictures to match with the pictures, with three levels of dificulty."
+  },
+  {
+    "id": 67057900491,
+    "name": "Getting Satan Out of Your Marriage Pamphlet",
+    "price": 1.99,
+    "category": "General",
+    "image": "MarriagePamphlet.jpeg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "Shouldn't marital problems be solved through the gospel of Jesus Christ? How much of the conflict comes from not being Christ-like? This is a two week program to catapult your relationship from frustrating to fantastic."
+  },
+  {
+    "id": 67057900497,
+    "name": "Criticism to Gratitude Tracker Chart",
+    "price": 2.49,
+    "category": "General",
+    "image": "Front Page - Criticism to Gratitude.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "How happy can you be? Non-judgmental, non-critical, forgiving, and grateful make for a happy marriage and life. This is a chart for helping move your life to amazing. \"whoso is happy, will be happy still….\" --Mormon 9:14"
+  },
+  {
+    "id": 67057900498,
+    "name": "Fill a Spirit Ward",
+    "price": 19.99,
+    "category": "General",
+    "image": "Fill a Chapel.jpg",
+    "in_stock": "Yes",
+    "is_featured": "No",
+    "description": "A ward challenge. Can you do the temple work for enough people to fill a spirit world chapel? Add a dot for each ordinance done and see their chapel fill."
   }
 ]

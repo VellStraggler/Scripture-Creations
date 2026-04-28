@@ -19,7 +19,7 @@ export default function Checkout() {
     fetch(`${API_BASE}/token`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Received client token:", data.clientToken);
+        // console.log("Received client token:", data.clientToken);
         setClientToken(data.clientToken);
       })
       .catch((err) => console.error("Token fetch error:", err));
@@ -77,14 +77,13 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
 
   // Send payment using token
   async function handlePay() {
-    if (!dropinInstance.current) {
-      console.error("Drop-In not ready yet");
-      return;
-    }
+    // prevent doubled purchases
+    if (loading) return;
+    if (!dropinInstance.current) return;
+
     try {
       setLoading(true);
       const { nonce } = await dropinInstance.current.requestPaymentMethod();
-      // console.log("Payment method nonce:", nonce);
 
       const res = await fetch(
         `${API_BASE}/purchase`,
@@ -97,10 +96,8 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
 
       const data = await res.json();
       if (data.success) {
-        // console.log("Transaction result:", data);
-        navigate("/success");
         resetCart();
-        alert("Payment successful");
+        navigate("/success");
       } 
       else console.error("Payment failed", data);
     } catch (err) {
@@ -116,12 +113,20 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
       <Navigation />
       <Title text="Checkout"/>
       <div className="content">
-        <div ref={dropinContainer} />
-          <div className="prod-button">
-            <button onClick={handlePay} disabled={loading || !ready}>
-              Pay {currencyUS(amt)}
-            </button>
+        {!loading ? (
+          <>
+          <div ref={dropinContainer} />
+            <div className="prod-button">
+              <button onClick={handlePay} disabled={loading || !ready}>
+                Pay {currencyUS(amt)}
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="title-basic">
+            Processing payment...
           </div>
+        )}
       </div>
       <Footer />
     </div>

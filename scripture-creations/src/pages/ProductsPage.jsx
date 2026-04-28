@@ -30,12 +30,16 @@ function Product({p}) {
 }
 
 function ProductList({category}) {
+    let count = products.filter(product => (product.category === category || category==null)).length;
     return (
-        <ul className="products">
-            {products.filter(product => (product.category === category || category==null))
-                .map(product => (
-                <Product key={product.id} p={product}/>))}
-        </ul>
+        <div>
+            <ul className="products">
+                {products.filter(product => (product.category === category || category==null))
+                    .map(product => (
+                        <Product key={product.id} p={product}/>))}
+            </ul>
+            <div className="page-bottom-desc">showing 1-{count} of {count} products</div>
+        </div>
     );
 }
 
