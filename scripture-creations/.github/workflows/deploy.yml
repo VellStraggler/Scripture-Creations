@@ -1,0 +1,45 @@
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - master
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+
+            - name: Install dependencies
+              run: npm ci
+
+            # 1. Generate JSON from XLSX
+            - name: Generate JSON data
+              run: node scripts/xlsx-to-json.js
+
+            # 2. Generate Webp images
+            - name: Generate images
+              run: node scripts/gen-webp-images.js
+
+            # 3. Build project
+            - name: Build Project
+              run: npm run build
+            
+            # 4. Deploy to gh-pages
+            # 'npm run deploy' but for Github Actions
+            - name: Deploy
+              uses: peaceiris/actions-ghpages@v4
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./dist
