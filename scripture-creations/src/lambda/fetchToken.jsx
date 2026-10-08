@@ -77,32 +77,63 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
 
   // Send payment using token
   async function handlePay() {
-    // prevent doubled purchases
     if (loading) return;
-    if (!dropinInstance.current) return;
-
+    if (!dropinInstance.current) {
+      console.error("Braintree Drop-In instance is not available");
+      return;
+    }
+  
     try {
       setLoading(true);
-      const { nonce } = await dropinInstance.current.requestPaymentMethod();
-
-      const res = await fetch(
-        `${API_BASE}/purchase`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nonce, product_ids: productIds, quantities: quantities, amount: amt, addressInfo: addressInfo }),
-        }
-      );
-
+  
+      console.log("1. Starting payment");
+  
+      console.log("2. Requesting Braintree payment method...");
+      const paymentMethod = await dropinInstance.current.requestPaymentMethod();
+  
+      console.log("3. Braintree payment method returned:", paymentMethod);
+  
+      const { nonce } = paymentMethod;
+  
+      console.log("4. Nonce received:", nonce ? "YES" : "NO");
+  
+      console.log("5. Sending /purchase request...");
+  
+      const res = await fetch(`${API_BASE}/purchase`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nonce,
+          product_ids: productIds,
+          quantities: quantities,
+          amount: amt,
+          addressInfo: addressInfo,
+        }),
+      });
+  
+      console.log("6. /purchase response received");
+      console.log("HTTP status:", res.status);
+      console.log("HTTP status text:", res.statusText);
+  
       const data = await res.json();
-      if (data.success) {
+  
+      console.log("7. /purchase response JSON:", data);
+  
+      if (res.ok && data.success) {
+        console.log("8. Payment successful");
+  
         resetCart();
         navigate("/success");
-      } 
-      else console.error("Payment failed", data);
+      } else {
+        console.error("Payment failed:", data);
+      }
+  
     } catch (err) {
-      console.error("Payment error:", err);
+      console.error("PAYMENT ERROR:", err);
     } finally {
+      console.log("9. Payment handler finished");
       setLoading(false);
     }
   }
