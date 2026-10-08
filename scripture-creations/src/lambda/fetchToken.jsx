@@ -77,10 +77,10 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
 
   // Send payment using token
   async function handlePay() {
-    alert("HANDLE PAY FIRED");
+    console.log("HANDLE PAY FIRED");
 
     if (loading) return;
-    alert("HANDLE PAY FINISHED LOADING");
+    console.log("HANDLE PAY FINISHED LOADING");
     if (!dropinInstance.current) {
       console.error("Braintree Drop-In instance is not available");
       return;
@@ -147,20 +147,13 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
       <Navigation />
       <Title text="Checkout"/>
       <div className="content">
-        {!loading ? (
-          <>
-          <div ref={dropinContainer} />
-            <div className="prod-button">
-              <button onClick={handlePay} disabled={loading || !ready}>
-                Pay {currencyUS(amt)}
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="title-basic">
-            Processing payment...
-          </div>
-        )}
+        <div ref={dropinContainer} />
+
+        <div className="prod-button">
+          <button onClick={handlePay} disabled={loading}>
+            {loading ? "Processing payment..." : `Pay ${currencyUS(amt)}`}
+          </button>
+        </div>
       </div>
       <Footer />
     </div>
