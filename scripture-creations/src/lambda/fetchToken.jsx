@@ -77,7 +77,10 @@ function DropInWrapper({ clientToken, amt, productIds, quantities, addressInfo})
 
   // Send payment using token
   async function handlePay() {
+    alert("HANDLE PAY FIRED");
+
     if (loading) return;
+    alert("HANDLE PAY FINISHED LOADING");
     if (!dropinInstance.current) {
       console.error("Braintree Drop-In instance is not available");
       return;
