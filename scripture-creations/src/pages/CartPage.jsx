@@ -183,10 +183,13 @@ function RemoveFromCart({ product }) {
 }
 
 function Cart() {
-  const { cart, getSubTotal, getTotal, getTaxRatePrint } = useCart();
+  const { cart, getSubTotal, getTotal, getTaxRatePrint, getShipping, shippingStatus, retryShipping } = useCart();
   const { isComplete } = useAddress();
 
   if (cart.length === 0) return <div className="text">Your cart is currently empty. Start shopping!</div>;
+
+  const shipping = getShipping();
+  const canCheckout = isComplete() && shipping !== null;
 
   return (
     <div>
@@ -196,7 +199,13 @@ function Cart() {
       <div className="money-box">
         <div>Subtotal: {currencyUS(getSubTotal())}</div>
         <div>Tax Rate: {getTaxRatePrint()}</div>
-        <h4>Total: {currencyUS(getTotal())}</h4>
+        <div>Shipping: {shipping === null ? "Unavailable" : currencyUS(shipping)}</div>
+        {shippingStatus === "loading" && <div>Loading shipping rates...</div>}
+        {shippingStatus === "error" && (
+          <div>Could not load shipping rates. <button type="button" onClick={retryShipping}>Retry</button></div>
+        )}
+        {shippingStatus === "ready" && shipping === null && <div>No shipping rate is available for this cart.</div>}
+        <h4>Total: {shipping === null ? "Unavailable" : currencyUS(getTotal())}</h4>
       </div>
       <AddressForms />
       <div className="centered">
@@ -204,9 +213,12 @@ function Cart() {
           to="/token"
           className="nice-button"
           style={{
-            pointerEvents: isComplete() ? "auto" : "none",
-            opacity: isComplete() ? 1 : 0.5
+            pointerEvents: canCheckout ? "auto" : "none",
+            opacity: canCheckout ? 1 : 0.5
           }}
+          onClick={e => { if (!canCheckout) e.preventDefault(); }}
+          aria-disabled={!canCheckout}
+          tabIndex={canCheckout ? undefined : -1}
         >
           Proceed to Checkout
         </NavLink>

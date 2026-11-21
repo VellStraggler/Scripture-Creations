@@ -1,6 +1,7 @@
 ## Publishing to Github
 
 npm run within the "scripture-creations" folder. WEBSITE doesn't recognize npm.
+```npm run build``` first,
 ```npm run deploy``` uses Vite to create the dist folder, the HTML output of Vite.
 gh-pages uses this as the base of the website on GitHub.
 

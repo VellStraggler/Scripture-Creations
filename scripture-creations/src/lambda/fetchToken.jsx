@@ -6,7 +6,7 @@ import { useAddress } from "../AddressContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const {getTotal, getProductIds, getQuantities} = useCart();
+  const {cart, getTotal, getProductIds, getQuantities, shippingStatus} = useCart();
   const amt = getTotal();
   const productIds = getProductIds();
   const quantities = getQuantities();
@@ -19,11 +19,18 @@ export default function Checkout() {
     fetch(`${API_BASE}/token`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log("Received client token:", data.clientToken);
         setClientToken(data.clientToken);
       })
       .catch((err) => console.error("Token fetch error:", err));
   }, []);
+
+  if (cart.length === 0 || amt === null) {
+    return <div className="container"><div className="title-basic">
+      {shippingStatus === "loading" && cart.length > 0
+        ? "Loading shipping rates..."
+        : "Shipping is unavailable for this cart. Please return to the cart."}
+    </div></div>;
+  }
 
   if (!clientToken) return <div className="container"><div className="title-basic">Loading payment options...</div></div>;
 

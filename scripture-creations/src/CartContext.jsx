@@ -1,10 +1,14 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { roundCurrency } from "./Components";
+import { calculateShipping, isValidShippingConfig } from "./shipping";
 
 const CartContext = createContext();
 const taxRate = 0.07; //a constant in AWS Lambda
 
 export function CartProvider({ children }) {
+    const [shippingConfig, setShippingConfig] = useState(null);
+    const [shippingStatus, setShippingStatus] = useState("loading");
+    const [shippingAttempt, setShippingAttempt] = useState(0);
     const [cart, setCart] = useState(() => {
         try { 
             const saved = localStorage.getItem("cart");
@@ -18,6 +22,30 @@ export function CartProvider({ children }) {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
+
+    useEffect(() => {
+        const controller = new AbortController();
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/shipping-rates`, { signal: controller.signal })
+            .then(response => {
+                if (!response.ok) throw new Error("Could not load shipping rates");
+                return response.json();
+            })
+            .then(config => {
+                if (!isValidShippingConfig(config)) throw new Error("Invalid shipping rates");
+                setShippingConfig(config);
+                setShippingStatus("ready");
+            })
+            .catch(error => {
+                if (error.name !== "AbortError") setShippingStatus("error");
+            });
+        return () => controller.abort();
+    }, [shippingAttempt]);
+
+    const retryShipping = () => {
+        setShippingConfig(null);
+        setShippingStatus("loading");
+        setShippingAttempt(attempt => attempt + 1);
+    };
 
     const addToCart = (newProduct, quantity=1) => {
         setCart(prev => {
@@ -100,14 +128,18 @@ export function CartProvider({ children }) {
     const getTaxRatePrint = () => {
         return (roundCurrency(getTaxRate(cart)*100)) + "%";
     }
+    const getShipping = () => calculateShipping(cart, shippingConfig);
     const getTotal = () => {
-        return roundCurrency(getSubTotal()*(1+taxRate));
+        const shipping = getShipping();
+        if (shipping === null) return null;
+        const subtotal = getSubTotal();
+        return roundCurrency(subtotal + subtotal * taxRate + shipping);
     }
 
     return (
         <CartContext.Provider value={{ cart, addToCart, resetCart, getSubTotal, 
         removeFromCart, getTaxRatePrint, adjustQuantity, getTotalQuantity, getTotal, getTaxRate,
-        getProductIds, getQuantities, getTaxRates }}>
+        getProductIds, getQuantities, getTaxRates, getShipping, shippingStatus, retryShipping }}>
             {children}
         </CartContext.Provider>
     );
